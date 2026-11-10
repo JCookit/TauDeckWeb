@@ -1,0 +1,160 @@
+@page "/games/{slug}"
+@model TauWeb.Web.Pages.Games.DetailModel
+@{
+    ViewData["Title"] = Model.Game.Name;
+}
+
+<section class="game-detail">
+    <header class="game-detail-hero">
+        <a class="back-link" asp-page="/Games/Index">Back to games</a>
+        <span class="game-status">@Model.Game.Status</span>
+        <h1>@Model.Game.Name</h1>
+                <p class="compatibility-tag">@( Model.Game.CompatibleEditions.Count == 0 ? "All deck editions" : "Deck editions: " + string.Join(", ", Model.Game.CompatibleEditions))</p>
+        <p class="lede">@Model.Game.Description</p>
+        <dl class="game-detail-stats">
+            <div>
+                <dt>Players</dt>
+                <dd>@Model.Game.PlayerCount</dd>
+            </div>
+            <div>
+                <dt>Minutes</dt>
+                <dd>@Model.Game.PlayTime</dd>
+            </div>
+            <div>
+                <dt>Complexity</dt>
+                <dd>@Model.Game.Complexity.ToString("0.##")</dd>
+            </div>
+            <div>
+                <dt>Mapping</dt>
+                <dd>@Model.Game.MapStrength</dd>
+            </div>
+        </dl>
+        <div class="game-source-links">
+            @if (!string.IsNullOrWhiteSpace(Model.Game.SourceUrl))
+            {
+                <a class="button compact-button" href="@Model.Game.SourceUrl">Source</a>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.Game.BggLink))
+            {
+                <a class="button compact-button" href="@Model.Game.BggLink">BGG</a>
+            }
+        </div>
+    </header>
+
+    <div class="game-detail-layout">
+        <main class="game-rules">
+            <section>
+                <h2>Objective</h2>
+                <p>@Model.Game.Rules.Objective</p>
+            </section>
+            <section>
+                <h2>Setup</h2>
+                <p>@Model.Game.Rules.Setup</p>
+            </section>
+            <section>
+                <h2>Gameplay</h2>
+                <p>@Model.Game.Rules.Gameplay</p>
+            </section>
+            @if (!string.IsNullOrWhiteSpace(Model.Game.Rules.MapDifferences))
+            {
+                <section>
+                    <h2>Mapping Notes</h2>
+                    <p>@Model.Game.Rules.MapDifferences</p>
+                </section>
+            }
+        </main>
+
+        <aside class="game-zones" aria-label="Card roles">
+            <h2>Roles</h2>
+            @foreach (var zone in Model.Game.CardZones)
+            {
+                <button class="zone-chip" type="button" data-zone="@zone.Id">
+                    <span>@zone.Name</span>
+                    @if (zone.Components.Count > 0)
+                    {
+                        <small>@string.Join(", ", zone.Components)</small>
+                    }
+                </button>
+            }
+        </aside>
+    </div>
+
+    <section class="mapping-section">
+        <div class="mapping-heading">
+            <div>
+                <h2>Tau Card Mapping</h2>
+                <p>Canonical Tau grid with suit columns and rank rows. Draft labels show the current Tau-specific role assignment for this game.</p>
+            </div>
+            @if (!string.IsNullOrWhiteSpace(Model.Game.RuleSource))
+            {
+                <span>Rules: @Model.Game.RuleSource</span>
+            }
+        </div>
+        <div class="mapping-scroll">
+            <table class="mapping-grid">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        @foreach (var suit in Model.TauSuits)
+                        {
+                            <th>@suit.Name</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rank in Model.TauRanks)
+                    {
+                        <tr>
+                            <th>@rank</th>
+                            @foreach (var suit in Model.TauSuits)
+                            {
+                                var key = DetailModel.CellKey(suit.Number, rank);
+                                var hasMapping = Model.MappingByTauCell.TryGetValue(key, out var mapping);
+                                var zoneIds = hasMapping ? string.Join(" ", mapping!.ZoneIds) : "";
+                                <td>
+                                    @if (hasMapping)
+                                    {
+                                        <button class="mapping-cell" type="button" data-zones="@zoneIds">
+                                            <strong>@mapping!.Label</strong>
+                                            <span>@string.Join(", ", mapping.ZoneIds.Select(id => Model.ZoneById.TryGetValue(id, out var zone) ? zone.Name : id))</span>
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <span class="mapping-cell is-empty">Unassigned</span>
+                                    }
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    @if (Model.SourceMappings.Count > 0)
+    {
+        <section class="mapping-section">
+            <div class="mapping-heading">
+                <div>
+                    <h2>Imported Source Mapping</h2>
+                    <p>Everdeck source suit/rank cells retained as reference data. These are not Tau card coordinates.</p>
+                </div>
+            </div>
+            <div class="source-mapping-list">
+                @foreach (var mapping in Model.SourceMappings)
+                {
+                    <article class="source-mapping-item" data-zones="@string.Join(" ", mapping.ZoneIds)">
+                        <strong>@mapping.SourceSuit @mapping.SourceRank</strong>
+                        <span>@mapping.Label</span>
+                        <small>@string.Join(", ", mapping.ZoneIds.Select(id => Model.ZoneById.TryGetValue(id, out var zone) ? zone.Name : id))</small>
+                    </article>
+                }
+            </div>
+        </section>
+    }
+</section>
+
+@section Scripts {
+    <script type="module" src="/js/games.js" asp-append-version="true"></script>
+}

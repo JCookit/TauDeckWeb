@@ -1,0 +1,1546 @@
+{
+  "systems": {
+    "suits": {
+      "sortOrder": 10,
+      "summary": [
+        "The ten suits provide Tau's most familiar card identity: color, family, and classic deck feel."
+      ],
+      "whyExists": [
+        "Suits keep Tau close to ordinary cards.",
+        "The deck has ten suits in five color pairs, with the black and red suits preserving the traditional club, spade, heart, and diamond anchors.  They are the most recognizable way to group cards, either by 10 glyphs or 5 colors.",
+        "They appear in the traditional opposite card corners."
+      ],
+      "existingGameMappings": [
+        "Existing games can treat a subset of suits as a standard deck, use suit color for matching games, or map suit pairs onto families in games that care about teams, factions, or colors."
+      ],
+      "novelGameUses": [
+        "New games can use the soft/hard suit pairs as a polarity system, or score color families."
+      ],
+      "relationships": [
+        "Suits are the most familiar layer. They work with [ranks](/systems/ranks) for classic card identity, and with [partitions](/systems/partitions) for balanced subsets. They give each card its primary coloring, and provide a loose domain for the [words](/systems/words)."
+      ],
+      "instances": {
+        "Club": {
+          "description": [
+            "Black, soft.  Archetypes"
+          ]
+        },
+        "Spade": {
+          "description": [
+            "Black, hard.  Archetypes"
+          ]
+        },
+        "Heart": {
+          "description": [
+            "Red, soft.  External Forces/Conflict"
+          ]
+        },
+        "Diamond": {
+          "description": [
+            "Red, hard.  External Forces/Conflict"
+          ]
+        },
+        "Flame": {
+          "description": [
+            "Blue, soft.  Internal Forces/Conflict"
+          ]
+        },
+        "Stone": {
+          "description": [
+            "Blue, hard. Internal Forces/Conflict"
+          ]
+        },
+        "Crescent": {
+          "description": [
+            "Yellow, soft.  Mythical/Symbols"
+          ]
+        },
+        "Star": {
+          "description": [
+            "Yellow, hard. Mythical/Symbols"
+          ]
+        },
+        "Leaf": {
+          "description": [
+            "Green, soft.  Wordly/Physical"
+          ]
+        },
+        "Peak": {
+          "description": [
+            "Green, hard. Wordly/Physical"
+          ]
+        }
+      },
+      "groups": {
+        "black": {
+          "name": "Black",
+          "description": [
+            "Club and Spade."
+          ],
+          "sortOrder": 100,
+          "filterKey": "suitName",
+          "filter": {
+            "field": "color",
+            "equalTo": "Black"
+          }
+        },
+        "red": {
+          "name": "Red",
+          "description": [
+            "Heart and Diamond."
+          ],
+          "sortOrder": 101,
+          "filterKey": "suitName",
+          "filter": {
+            "field": "color",
+            "equalTo": "Red"
+          }
+        },
+        "blue": {
+          "name": "Blue",
+          "description": [
+            "Flame and Stone."
+          ],
+          "sortOrder": 102,
+          "filterKey": "suitName",
+          "filter": {
+            "field": "color",
+            "equalTo": "Blue"
+          }
+        },
+        "yellow": {
+          "name": "Yellow",
+          "description": [
+            "Crescent and Star."
+          ],
+          "sortOrder": 103,
+          "filterKey": "suitName",
+          "filter": {
+            "field": "color",
+            "equalTo": "Yellow"
+          }
+        },
+        "green": {
+          "name": "Green",
+          "description": [
+            "Leaf and Peak."
+          ],
+          "sortOrder": 104,
+          "filterKey": "suitName",
+          "filter": {
+            "field": "color",
+            "equalTo": "Green"
+          }
+        }
+      },
+      "usesInPlay": [
+        "Use the traditional suits for familiar card games, suit colors for matching, or color pairs as teams, factions, or families.",
+        "For new designs, the soft/hard suit pairs can express polarity, while the five color families can support collection and scoring."
+      ]
+    },
+    "ranks": {
+      "sortOrder": 20,
+      "summary": [
+        "Ranks provide the standard 1-15 ordering.  This appears as a number, a glyph and the rank rail."
+      ],
+      "whyExists": [
+        "Ranks provide ordering, comparison, and the standard deck feel. Tau extends the usual 1-13 pattern to 1-15 so the deck can host extra roles, wilds, and special mappings.",
+        "Each rank appears as a number, a glyph, and a decorative rail. Ranks have unique colors within three bands—orange, teal, and purple—providing a secondary coloring for the cards."
+      ],
+      "existingGameMappings": [
+        "Ranks map directly to playing-card ranks: 1 can act as ace, 11-13 as face cards, and 14-15 as wild or special cards.",
+        "Every rank has a glyph, which can be a quicker visual reference for some games.",
+        "Every rank also has a unique decorative rail, which can be used for visual memory or as a compact secondary encoding."
+      ],
+      "novelGameUses": [
+        "Novel games can use rank as progression, threshold, tempo, or card power. The glyphs provide a visual shorthand for these uses.",
+        "The rank rail adds an alternate inverted value from -14 to 0, which supports reversal, debt, polarity, or dual scoring.",
+        "Ranks also have unique colors, separate into 3 bands (orange, teal, purple) and give cards a secondary coloring."
+      ],
+      "relationships": [
+        "Ranks interact with [suits](/systems/suits) as primary identity.  Ranks also have themes relating to the [words](/systems/words), creating a loose story arc, and reinforcing the glyphs."
+      ],
+      "instanceBreakAfter": [
+        5,
+        10
+      ],
+      "instances": {
+        "1": {
+          "description": [
+            "Beginnings.",
+            "Ace in a standard deck"
+          ]
+        },
+        "2": {
+          "description": [
+            "Choice."
+          ]
+        },
+        "3": {
+          "description": [
+            "Growth."
+          ]
+        },
+        "4": {
+          "description": [
+            "Structure."
+          ]
+        },
+        "5": {
+          "description": [
+            "Tension."
+          ]
+        },
+        "6": {
+          "description": [
+            "Bond."
+          ]
+        },
+        "7": {
+          "description": [
+            "Motion."
+          ]
+        },
+        "8": {
+          "description": [
+            "Power."
+          ]
+        },
+        "9": {
+          "description": [
+            "Foundation."
+          ]
+        },
+        "10": {
+          "description": [
+            "Environment."
+          ]
+        },
+        "11": {
+          "description": [
+            "Signal.",
+            "Jack in a standard deck"
+          ]
+        },
+        "12": {
+          "description": [
+            "Craft.",
+            "Queen in a standard deck"
+          ]
+        },
+        "13": {
+          "description": [
+            "Change.",
+            "King in a standard deck"
+          ]
+        },
+        "14": {
+          "description": [
+            "Forge."
+          ]
+        },
+        "15": {
+          "description": [
+            "Reflection."
+          ]
+        }
+      },
+      "groups": {
+        "orange": {
+          "name": "Beginnings",
+          "description": [
+            "Ranks 1-5. Orange. The first rank color band."
+          ],
+          "sortOrder": 100,
+          "filterKey": "rank",
+          "filter": {
+            "field": "rank",
+            "in": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5"
+            ]
+          }
+        },
+        "teal": {
+          "name": "Journeys",
+          "description": [
+            "Ranks 6-10. Teal. The middle rank color band."
+          ],
+          "sortOrder": 101,
+          "filterKey": "rank",
+          "filter": {
+            "field": "rank",
+            "in": [
+              "6",
+              "7",
+              "8",
+              "9",
+              "10"
+            ]
+          }
+        },
+        "purple": {
+          "name": "Endings",
+          "description": [
+            "Ranks 11-15. Purple. The high rank color band."
+          ],
+          "sortOrder": 102,
+          "filterKey": "rank",
+          "filter": {
+            "field": "rank",
+            "in": [
+              "11",
+              "12",
+              "13",
+              "14",
+              "15"
+            ]
+          }
+        }
+      },
+      "usesInPlay": [
+        "Map ranks to familiar playing cards: 1 can act as ace, 11–13 as face cards, and 14–15 as wild or special cards.",
+        "Use rank for comparison, progression, thresholds, tempo, or card power. The glyphs and decorative rails offer visual recognition and memory cues. The rail’s inverted value, from -14 to 0, can support reversal, debt, polarity, or dual scoring."
+      ]
+    },
+    "sequence-numbers": {
+      "sortOrder": 30,
+      "summary": [
+        "Sequence numbers provide a 000-149 identifier for every card in the top right."
+      ],
+      "whyExists": [
+        "Sequence numbers give every Tau card a stable position in the full 150-card deck. The numbers are useful as label by themselves, but have additional grouping properties."
+      ],
+      "existingGameMappings": [
+        "Existing games could use sequence number as a unique sortable value. In addition, the last digit is shared by 3 cards of each color  (5 colors by 10 digits with 3 cards each).  Finally, the last 2 digits of the 25 Tarot cards are the canonical Tarot numbers."
+      ],
+      "novelGameUses": [
+        "Anything that needs a unique sortable value for each card; either as an identifier or scoring.  The last digit can be used for color-based grouping."
+      ],
+      "relationships": [
+        "For [ranks](/systems/ranks) 1-10, the sequence numbers follow a predictable 000-099 ordering, where the first 2 digits match the [suit](/systems/suits) and the last digit is the [rank](/systems/ranks).  Rank 10 is assigned 0.",
+        "Ranks 11-15 are assigned 100-149, the end result giving 3 last-digit matches per suit color.",
+        "The [Tarot cards](/systems/tarot) have sequence numbers ending in 00-24 (indicated with a T), which match the canonical Tarot numbering."
+      ],
+      "usesInPlay": [
+        "Use the sequence number whenever each card needs a unique identifier, sortable value, or score.",
+        "Use the last digit to group cards within suit colors: each color contains three cards ending in each digit. Tarot numbering provides another way to identify and order the marked cards."
+      ]
+    },
+    "spheres": {
+      "sortOrder": 40,
+      "summary": [
+        "Spheres are six 25-card mega-suits: Order, Air, Water, Fire, Earth, and Chaos."
+      ],
+      "whyExists": [
+        "Spheres split the 150-card deck into six equal 25-card domains. They create a secondary suit-like structure that cuts across the normal [suits](/systems/suits) and [ranks](/systems/ranks). Each sphere contains one of each [mode](/systems/modes), and both glyphs appear in the top right."
+      ],
+      "existingGameMappings": [
+        "Existing games can use spheres as substitute suits, teams, resources, or scenario categories when the ten Tau suits are too granular."
+      ],
+      "novelGameUses": [
+        "New games can use spheres as domains, board regions, character approaches, elemental costs, or constraints for set collection.",
+        "The glyphs have 0-5 pips in them, creating an ordinal sequence if needed."
+      ],
+      "relationships": [
+        "Spheres pair with [modes](/systems/modes) as an orthogonal axis.",
+        "They also determine the [sphere zodiac](/systems/sphere-zodiac) overlay and give narrative context to the [words](/systems/words) and [icons](/systems/icons) on each card."
+      ],
+      "instances": {
+        "Order": {
+          "description": [
+            "0",
+            "Order/Pattern."
+          ]
+        },
+        "Air": {
+          "description": [
+            "1",
+            "Air/Motion."
+          ]
+        },
+        "Water": {
+          "description": [
+            "2",
+            "Water/State."
+          ]
+        },
+        "Fire": {
+          "description": [
+            "3",
+            "Fire/Force."
+          ]
+        },
+        "Earth": {
+          "description": [
+            "4",
+            "Earth/Form."
+          ]
+        },
+        "Chaos": {
+          "description": [
+            "5",
+            "Chaos/Mystery."
+          ]
+        }
+      },
+      "usesInPlay": [
+        "Use the six spheres as alternate suits, teams, resources, scenario categories, or board regions when the ten suits are too granular.",
+        "Collect a spread of spheres, assign elemental costs, or use their themes as character approaches and narrative domains. The glyphs’ 0–5 values also support ordering and comparison."
+      ],
+      "authorsNote": [
+        "I first explored the four classical elements, then a five-way grouping. But five repeated the division already provided by suit colors. Six gave me equal groups of 25 and a different way to divide the deck, with Order and Chaos alongside the four elements.",
+        "Read the design story: [Spheres: Another Way to Slice the Deck](/articles/spheres-another-way-to-slice-the-deck)."
+      ]
+    },
+    "modes": {
+      "sortOrder": 50,
+      "summary": [
+        "Modes are 25 recurring qualities that pair with spheres as a second suit/rank-like axis."
+      ],
+      "whyExists": [
+        "Modes make the Tarot-influenced emotional and experiential layer matter across the whole deck.",
+        "There are 25 modes, each appearing six times (one for each sphere)."
+      ],
+      "existingGameMappings": [
+        "Existing games can use modes as alternate ranks, role labels, or collection constraints."
+      ],
+      "novelGameUses": [
+        "Novel games can require spreads of modes, avoid duplicates, score mode families, or use mode changes as state transitions.",
+        "For narrative play, modes answer how or why a card operates.",
+        "The mode glyphs are abstract but are organized into five colored families, and form a symbol alphabet that can be easily translated into a number."
+      ],
+      "relationships": [
+        "Modes pair with [spheres](/systems/spheres) as the deck's second suit/rank-like grid. Each mode contains exactly one of the [Tarot](/systems/tarot) cards, plus 5 others. They give emotional context to the [words](/systems/words) on the card.",
+        "They also balance strongly with the three [icon groups](/systems/icon-groups)."
+      ],
+      "instanceBreakAfter": [
+        5,
+        10,
+        15,
+        20
+      ],
+      "instances": {
+        "Awakening": {
+          "description": [
+            "0"
+          ]
+        },
+        "Curiosity": {
+          "description": [
+            "1"
+          ]
+        },
+        "Ambition": {
+          "description": [
+            "2"
+          ]
+        },
+        "Desire": {
+          "description": [
+            "3"
+          ]
+        },
+        "Vitality": {
+          "description": [
+            "4"
+          ]
+        },
+        "Hope": {
+          "description": [
+            "5"
+          ]
+        },
+        "Insight": {
+          "description": [
+            "6"
+          ]
+        },
+        "Wonder": {
+          "description": [
+            "7"
+          ]
+        },
+        "Expectation": {
+          "description": [
+            "8"
+          ]
+        },
+        "Awareness": {
+          "description": [
+            "9"
+          ]
+        },
+        "Connection": {
+          "description": [
+            "10"
+          ]
+        },
+        "Agency": {
+          "description": [
+            "11"
+          ]
+        },
+        "Power": {
+          "description": [
+            "12"
+          ]
+        },
+        "Passion": {
+          "description": [
+            "13"
+          ]
+        },
+        "Composure": {
+          "description": [
+            "14"
+          ]
+        },
+        "Resilience": {
+          "description": [
+            "15"
+          ]
+        },
+        "Confusion": {
+          "description": [
+            "16"
+          ]
+        },
+        "Fear": {
+          "description": [
+            "17"
+          ]
+        },
+        "Instability": {
+          "description": [
+            "18"
+          ]
+        },
+        "Retreat": {
+          "description": [
+            "19"
+          ]
+        },
+        "Recovery": {
+          "description": [
+            "20"
+          ]
+        },
+        "Revelation": {
+          "description": [
+            "21"
+          ]
+        },
+        "Transformation": {
+          "description": [
+            "22"
+          ]
+        },
+        "Triumph": {
+          "description": [
+            "23"
+          ]
+        },
+        "Wisdom": {
+          "description": [
+            "24"
+          ]
+        }
+      },
+      "groups": {
+        "ignition": {
+          "name": "Ignition",
+          "description": [
+            "Modes 0-4. Green. The first colored mode family."
+          ],
+          "sortOrder": 100,
+          "filterKey": "mode",
+          "filter": {
+            "field": "modeNumber",
+            "in": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4"
+            ]
+          }
+        },
+        "exploration": {
+          "name": "Exploration",
+          "description": [
+            "Modes 5-9. Blue. The second colored mode family."
+          ],
+          "sortOrder": 101,
+          "filterKey": "mode",
+          "filter": {
+            "field": "modeNumber",
+            "in": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9"
+            ]
+          }
+        },
+        "organization": {
+          "name": "Organization",
+          "description": [
+            "Modes 10-14. Purple. The third colored mode family."
+          ],
+          "sortOrder": 102,
+          "filterKey": "mode",
+          "filter": {
+            "field": "modeNumber",
+            "in": [
+              "10",
+              "11",
+              "12",
+              "13",
+              "14"
+            ]
+          }
+        },
+        "turbulence": {
+          "name": "Turbulence",
+          "description": [
+            "Modes 15-19. Red. The fourth colored mode family."
+          ],
+          "sortOrder": 103,
+          "filterKey": "mode",
+          "filter": {
+            "field": "modeNumber",
+            "in": [
+              "15",
+              "16",
+              "17",
+              "18",
+              "19"
+            ]
+          }
+        },
+        "resolution": {
+          "name": "Resolution",
+          "description": [
+            "Modes 20-24. Neutral. The fifth colored mode family."
+          ],
+          "sortOrder": 104,
+          "filterKey": "mode",
+          "filter": {
+            "field": "modeNumber",
+            "in": [
+              "20",
+              "21",
+              "22",
+              "23",
+              "24"
+            ]
+          }
+        }
+      },
+      "usesInPlay": [
+        "Use modes as alternate ranks or roles, collect different modes, avoid duplicates, or score their five colored families. Changes between modes can also represent changes of state.",
+        "For narrative play, modes offer an emotional or experiential lens on how or why a card operates. Their glyphs form a symbol alphabet that can also be translated into numbers for comparison and ordering."
+      ],
+      "authorsNote": [
+        "Modes began as groups around the Tarot cards, originally called echoes. The useful step was making each group contain one card from every sphere. That turned two separate groupings into a grid, while the emotional and experiential themes gave the groups an identity of their own.",
+        "Read the design story: [Modes: Trying to Make the Tarots Matter More](/articles/modes-trying-to-make-the-tarots-matter-more)."
+      ]
+    },
+    "sphere-zodiac": {
+      "sortOrder": 115,
+      "summary": [
+        "The sphere zodiac is a sparse overlay tied to elemental sphere assignments and higher-rank planets."
+      ],
+      "whyExists": [
+        "The sphere zodiac adds a sparse mythic overlay that aligns with the elemental spheres, while planets make selected high ranks feel special. The glyph appears on the right side of the card."
+      ],
+      "existingGameMappings": [
+        "Existing games can treat zodiac cards as bonus cards, trump markers, or optional objectives."
+      ],
+      "novelGameUses": [
+        "New games can score by sign, require signs in spreads, and make planetary cards rare powers."
+      ],
+      "relationships": [
+        "Sphere zodiac depends on [sphere](/systems/spheres) membership and restricted to certain [ranks](/systems/ranks).",
+        "There are 5 of each zodiac, spread across ranks 1-10, and occuring only on matching elemental spheres (air signs on Air sphere cards, etc).",
+        "There are 2 of each planet, occuring in ranks 11-15, one in Order and one in Chaos."
+      ],
+      "instanceBreakAfter": [
+        12
+      ],
+      "instances": {
+        "Aries": {
+          "description": [
+            "Fire sphere; ranks 1-10."
+          ]
+        },
+        "Taurus": {
+          "description": [
+            "Earth sphere; ranks 1-10."
+          ]
+        },
+        "Gemini": {
+          "description": [
+            "Air sphere; ranks 1-10."
+          ]
+        },
+        "Cancer": {
+          "description": [
+            "Water sphere; ranks 1-10."
+          ]
+        },
+        "Leo": {
+          "description": [
+            "Fire sphere; ranks 1-10."
+          ]
+        },
+        "Virgo": {
+          "description": [
+            "Earth sphere; ranks 1-10."
+          ]
+        },
+        "Libra": {
+          "description": [
+            "Air sphere; ranks 1-10."
+          ]
+        },
+        "Scorpio": {
+          "description": [
+            "Water sphere; ranks 1-10."
+          ]
+        },
+        "Sagittarius": {
+          "description": [
+            "Fire sphere; ranks 1-10."
+          ]
+        },
+        "Capricorn": {
+          "description": [
+            "Earth sphere; ranks 1-10."
+          ]
+        },
+        "Aquarius": {
+          "description": [
+            "Air sphere; ranks 1-10."
+          ]
+        },
+        "Pisces": {
+          "description": [
+            "Water sphere; ranks 1-10."
+          ]
+        },
+        "Mercury": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        },
+        "Venus": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        },
+        "Mars": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        },
+        "Jupiter": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        },
+        "Saturn": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        },
+        "Uranus": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        },
+        "Neptune": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        },
+        "Pluto": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        },
+        "Moon": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        },
+        "Sun": {
+          "description": [
+            "Order and Chaos; ranks 11-15."
+          ]
+        }
+      },
+      "groups": {
+        "any-symbol": {
+          "name": "Any Symbol",
+          "description": [
+            "Any card with a sphere zodiac symbol."
+          ],
+          "sortOrder": 100,
+          "filterKey": "sphereZodiac",
+          "filter": {
+            "field": "sphereZodiac",
+            "in": [
+              "Aries",
+              "Taurus",
+              "Gemini",
+              "Cancer",
+              "Leo",
+              "Virgo",
+              "Libra",
+              "Scorpio",
+              "Sagittarius",
+              "Capricorn",
+              "Aquarius",
+              "Pisces",
+              "Mercury",
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn",
+              "Uranus",
+              "Neptune",
+              "Pluto",
+              "Moon",
+              "Sun"
+            ]
+          }
+        },
+        "any-zodiac": {
+          "name": "Any Zodiac",
+          "description": [
+            "Any of the twelve zodiac signs."
+          ],
+          "sortOrder": 101,
+          "filterKey": "sphereZodiac",
+          "filter": {
+            "field": "sphereZodiac",
+            "in": [
+              "Aries",
+              "Taurus",
+              "Gemini",
+              "Cancer",
+              "Leo",
+              "Virgo",
+              "Libra",
+              "Scorpio",
+              "Sagittarius",
+              "Capricorn",
+              "Aquarius",
+              "Pisces"
+            ]
+          }
+        },
+        "any-planet": {
+          "name": "Any Planet",
+          "description": [
+            "Any of the high-rank planetary symbols."
+          ],
+          "sortOrder": 102,
+          "filterKey": "sphereZodiac",
+          "filter": {
+            "field": "sphereZodiac",
+            "in": [
+              "Mercury",
+              "Venus",
+              "Mars",
+              "Jupiter",
+              "Saturn",
+              "Uranus",
+              "Neptune",
+              "Pluto",
+              "Moon",
+              "Sun"
+            ]
+          }
+        }
+      },
+      "usesInPlay": [
+        "Use zodiac-bearing cards as a special subset: bonus cards, trump markers, or optional objectives. Collect signs or require particular signs in a spread.",
+        "The rarer planetary cards can act as special powers. Combine the signs with their elemental spheres for thematic constraints or narrative prompts."
+      ]
+    },
+    "first-letters": {
+      "sortOrder": 70,
+      "summary": [
+        "The first letter of the card word appears in the bottom left, usable for alphabetic filtering and word-building games."
+      ],
+      "whyExists": [
+        "First letters make the word layer mechanically accessible.",
+        "The deck can act as a letter source without requiring players to read the full word as flavor only.",
+        "The letters appear in roughly the frequency as in English, making them useful for word games."
+      ],
+      "existingGameMappings": [
+        "Existing word games can draw Tau cards as letter tiles, prompts, or constraints."
+      ],
+      "novelGameUses": [
+        "New games can combine letters with suits, ranks, or icons to build spelling, anagram, and acronym challenges."
+      ],
+      "relationships": [
+        "This is the first letter of the card [word](/systems/words); they let the narrative vocabulary double as a practical word-game component.",
+        "Letters connect to [letter scores](/systems/letter-scores)."
+      ],
+      "usesInPlay": [
+        "Draw cards as letter tiles for spelling, anagram, or acronym challenges, or use the letters as prompts and vocabulary constraints.",
+        "Combine the letter with suit, rank, icon, or letter score when a word game needs another constraint or a way to score."
+      ]
+    },
+    "letter-scores": {
+      "sortOrder": 80,
+      "summary": [
+        "Letter scores are a 1-6 value attached to the word layer."
+      ],
+      "whyExists": [
+        "Letter scores compress the word layer into a small numeric scale.",
+        "They also provide a non-linear but predictable distribution of values 1-6.",
+        "A dice glyph encodes the score in the bottom left."
+      ],
+      "existingGameMappings": [
+        "Existing games can use the score as a point value, cost, or priority marker."
+      ],
+      "novelGameUses": [
+        "New games can combine score with first letter, link count, border score, or rank to create layered scoring.",
+        "The glyphs are shaded slightly to create 4 distinct groups (1, 2, 3-4 and 5-6) which could be used as a coarser scale."
+      ],
+      "relationships": [
+        "Letter score relates to [first letter](/systems/first-letters). Common letters have a lower score (ie E's are always 1, Z's are always 6).",
+        "Importantly, this has a predictable exponential-like distribution through the whole deck as well as [suit](/systems/suits) colors. Exactly half of each suit color has value 1, and therefore half of the entire deck has value 1. A quarter has value 2, etc."
+      ],
+      "usesInPlay": [
+        "Use the score for word-game points, or ignore the letter and treat it as a small point value, cost, or priority marker.",
+        "Combine it with rank, border score, or in-link count for layered scoring. For a coarser scale, use the die shading as four tiers: 1, 2, 3–4, and 5–6."
+      ],
+      "authorsNote": [
+        "I wanted letter scores to do more than reward rare letters. Shaping the values into a repeatable distribution across suit colors made them useful even when a game ignores the letters entirely. The die glyph expresses that small numerical value; it does not imply a fair die roll.",
+        "Read the design story: [Letter and Letter Score](/articles/letter-and-letter-score)."
+      ]
+    },
+    "directions": {
+      "sortOrder": 110,
+      "summary": [
+        "Directions create a four-way partition for movement, orientation, and spatial play."
+      ],
+      "whyExists": [
+        "Directions give Tau a four-way partition and support spatial play.",
+        "Since 150 does not divide exactly into four, there are 38 N/S cards and 37 E/W cards. The compass glyph gives quick recognition."
+      ],
+      "existingGameMappings": [
+        "Existing games can use directions as movement arrows, orientation requirements, or simple four-team grouping."
+      ],
+      "novelGameUses": [
+        "New games can make cards push, pull, point, rotate, or constrain placement according to direction."
+      ],
+      "relationships": [
+        "Directions are assigned in a way that relates to [suit](/systems/suits) and [rank](/systems/ranks), and relate partially to [borders](/systems/border-arrangements) - N skews having fewer borders; S skews many; N+E and S+W make a fairly equal partitioning."
+      ],
+      "usesInPlay": [
+        "Use directions as movement arrows, orientation requirements, or four-team labels.",
+        "Cards can push, pull, point, rotate, or constrain placement according to their direction. Pair directions when a design needs a roughly equal two-way split."
+      ]
+    },
+    "border-scores": {
+      "sortOrder": 100,
+      "summary": [
+        "Each border has a point value from 0-4; totalling these gives a score for each card between 0-16. "
+      ],
+      "whyExists": [
+        "Border score turns visible edge markings into a clean 0-16 number.",
+        "The values are distributed inverse-linearly through the deck; there are 16 cards with value 1, 15 with 2, 14 with 3, up to 1 card with value 16 (and a leftover of 14 card with value 0).",
+        "A player can manually sum the border pips, or use the border pie chart beneath the compass for quick reference."
+      ],
+      "existingGameMappings": [
+        "Existing games can use border score as a point value, tiebreaker, cost, or difficulty."
+      ],
+      "novelGameUses": [
+        "New games can use thresholds, exact totals, increasing paths, or score-matching placement."
+      ],
+      "relationships": [
+        "Border score relates the [border sides](/systems/border-arrangements) and are distributed through the deck in a pattern relating to [suit](/systems/suits) and [rank](/systems/ranks)."
+      ],
+      "usesInPlay": [
+        "Use the total as a point value, tiebreaker, cost, or difficulty.",
+        "Build around thresholds, exact totals, increasing paths, or score-matching placement. The printed total avoids repeatedly summing the edge pips."
+      ]
+    },
+    "border-arrangements": {
+      "sortOrder": 90,
+      "summary": [
+        "Border arrangements describe which card edges carry border marks.",
+        "Borders can be present or absent on every side, and if present can carry a point score from 1-4."
+      ],
+      "whyExists": [
+        "Border arrangements describe card shape: which edges are present. Every combination exists, from no borders to 1, 2, 3, or all 4 borders. This makes cards usable as simple tiles instead of only as flat ranked cards."
+      ],
+      "existingGameMappings": [
+        "Existing tile-laying or map-building games can map paths, walls, gates, or adjacency requirements onto the edge pattern."
+      ],
+      "novelGameUses": [
+        "New games can require corners, opposite sides, open cards, enclosed cards, or exact edge matching. Point value could carry additional narrative or mechanical meaning."
+      ],
+      "relationships": [
+        "[Border score](/systems/border-scores) is the numerical counterpart to border arrangements.",
+        "Since scores follow a pattern across [suits](/systems/suits) and [rank](/systems/ranks), border distribution does as well.",
+        "[Border zodiac](/systems/border-zodiac) is a related overlay that maps some border arrangements into zodiac signs."
+      ],
+      "instances": {
+        "None": {
+          "description": [
+            "0 borders. 0 points."
+          ]
+        },
+        "T": {
+          "description": [
+            "1 border on the top; of 34 cards with 1 border."
+          ]
+        },
+        "L": {
+          "description": [
+            "1 border on the left; of 34 cards with 1 border."
+          ]
+        },
+        "R": {
+          "description": [
+            "1 border on the right; of 34 cards with 1 border."
+          ]
+        },
+        "B": {
+          "description": [
+            "1 border on the bottom; of 34 cards with 1 border."
+          ]
+        },
+        "T+L": {
+          "description": [
+            "2 borders on the top and left; of 54 cards with 2 borders."
+          ]
+        },
+        "T+R": {
+          "description": [
+            "2 borders on the top and right; of 54 cards with 2 borders."
+          ]
+        },
+        "T+B": {
+          "description": [
+            "2 borders on the top and bottom; of 54 cards with 2 borders."
+          ]
+        },
+        "R+L": {
+          "description": [
+            "2 borders on the left and right; of 54 cards with 2 borders."
+          ]
+        },
+        "B+L": {
+          "description": [
+            "2 borders on the bottom and left; of 54 cards with 2 borders."
+          ]
+        },
+        "R+B": {
+          "description": [
+            "2 borders on the right and bottom; of 54 cards with 2 borders."
+          ]
+        },
+        "T+R+L": {
+          "description": [
+            "3 borders on the top, right and left; of 34 cards with 3 borders."
+          ]
+        },
+        "T+R+B": {
+          "description": [
+            "3 borders on the top, right and bottom; of 34 cards with 3 borders."
+          ]
+        },
+        "T+B+L": {
+          "description": [
+            "3 borders on the top, left and bottom; of 34 cards with 3 borders."
+          ]
+        },
+        "R+B+L": {
+          "description": [
+            "3 borders on the right, left and bottom; of 34 cards with 3 borders."
+          ]
+        },
+        "T+R+B+L": {
+          "description": [
+            "Borders on all sides"
+          ]
+        }
+      },
+      "groups": {
+        "any-top": {
+          "name": "Any Top",
+          "description": [
+            "Any arrangement with a top border."
+          ],
+          "sortOrder": 100,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "hasBorderSide": "top"
+          }
+        },
+        "any-right": {
+          "name": "Any Right",
+          "description": [
+            "Any arrangement with a right border."
+          ],
+          "sortOrder": 101,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "hasBorderSide": "right"
+          }
+        },
+        "any-bottom": {
+          "name": "Any Bottom",
+          "description": [
+            "Any arrangement with a bottom border."
+          ],
+          "sortOrder": 102,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "hasBorderSide": "bottom"
+          }
+        },
+        "any-left": {
+          "name": "Any Left",
+          "description": [
+            "Any arrangement with a left border."
+          ],
+          "sortOrder": 103,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "hasBorderSide": "left"
+          }
+        },
+        "one-border": {
+          "name": "1 Border",
+          "description": [
+            "Any arrangement with exactly 1 border."
+          ],
+          "sortOrder": 110,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "field": "borderCount",
+            "equalTo": "1"
+          }
+        },
+        "two-borders": {
+          "name": "2 Borders",
+          "description": [
+            "Any arrangement with exactly 2 borders."
+          ],
+          "sortOrder": 111,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "field": "borderCount",
+            "equalTo": "2"
+          }
+        },
+        "three-borders": {
+          "name": "3 Borders",
+          "description": [
+            "Any arrangement with exactly 3 borders."
+          ],
+          "sortOrder": 112,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "field": "borderCount",
+            "equalTo": "3"
+          }
+        },
+        "four-borders": {
+          "name": "4 Borders",
+          "description": [
+            "Any arrangement with exactly 4 borders."
+          ],
+          "sortOrder": 113,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "field": "borderCount",
+            "equalTo": "4"
+          }
+        },
+        "two-opposite-borders": {
+          "name": "2 Opposite Borders",
+          "description": [
+            "Any 2-border arrangement where the borders are opposite."
+          ],
+          "sortOrder": 114,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "field": "borderArrangement",
+            "in": [
+              "T+B",
+              "R+L"
+            ]
+          }
+        },
+        "two-adjacent-borders": {
+          "name": "2 Adjacent Borders",
+          "description": [
+            "Any 2-border arrangement where the borders are adjacent."
+          ],
+          "sortOrder": 115,
+          "filterKey": "borderArrangement",
+          "filter": {
+            "field": "borderArrangement",
+            "in": [
+              "T+L",
+              "T+R",
+              "R+B",
+              "B+L"
+            ]
+          }
+        }
+      },
+      "usesInPlay": [
+        "Treat the edge patterns as paths, walls, gates, or adjacency requirements in tile-laying and map-building games.",
+        "Require corners, opposite sides, open or enclosed cards, or exact edge matches. Edge point values can add another mechanical or narrative meaning."
+      ]
+    },
+    "border-zodiac": {
+      "sortOrder": 120,
+      "summary": [
+        "Border zodiac adds another sparse zodiac overlay."
+      ],
+      "whyExists": [
+        "Border zodiac began as a special match for the upper-right sphere zodiac.",
+        "The glyph appears on the left side of the card."
+      ],
+      "existingGameMappings": [
+        "Existing games can treat it like a bonus condition, or optional sign-matching rule."
+      ],
+      "novelGameUses": [
+        "New games can use it for additional mystical flavor, edge-based objectives, or combined sphere/border zodiac scoring."
+      ],
+      "relationships": [
+        "Border zodiac depends on the [border arrangements](/systems/border-arrangements) and [suit](/systems/suits) and are evocative of alchemical processes; certain signs will only appear on cards with 0, 1, 2, 3 or 4 borders.",
+        "There are 80 cards with a border zodiac; 40 cards that have both this and a [sphere zodiac](/systems/sphere-zodiac); and 5 cards that have the same sign in both places."
+      ],
+      "instances": {
+        "Aries": {
+          "description": [
+            "0 borders; soft suits.",
+            "Ignition."
+          ]
+        },
+        "Taurus": {
+          "description": [
+            "2 adjacent borders; hard suits.",
+            "Multiplication."
+          ]
+        },
+        "Gemini": {
+          "description": [
+            "2 opposite sides; soft suits.",
+            "Separation."
+          ]
+        },
+        "Cancer": {
+          "description": [
+            "1 border; hard suits.",
+            "Distillation."
+          ]
+        },
+        "Leo": {
+          "description": [
+            "0 borders; hard suits.",
+            "Sublimation."
+          ]
+        },
+        "Virgo": {
+          "description": [
+            "2 opposite borders; hard suits.",
+            "Refinement."
+          ]
+        },
+        "Libra": {
+          "description": [
+            "2 adjacent sides; soft suits.",
+            "Conjunction."
+          ]
+        },
+        "Scorpio": {
+          "description": [
+            "3 borders; soft suits.",
+            "Fermentation."
+          ]
+        },
+        "Sagittarius": {
+          "description": [
+            "3 borders; hard suits.",
+            "Circulation."
+          ]
+        },
+        "Capricorn": {
+          "description": [
+            "4 borders; soft suits.",
+            "Coagulation."
+          ]
+        },
+        "Aquarius": {
+          "description": [
+            "4 borders; hard suits.",
+            "Fixation."
+          ]
+        },
+        "Pisces": {
+          "description": [
+            "1 border; soft suits.",
+            "Dissolution."
+          ]
+        }
+      },
+      "groups": {
+        "any-symbol": {
+          "name": "Any Symbol",
+          "description": [
+            "Any card with a border zodiac symbol."
+          ],
+          "sortOrder": 100,
+          "filterKey": "borderZodiac",
+          "filter": {
+            "field": "borderZodiac",
+            "in": [
+              "Aries",
+              "Taurus",
+              "Gemini",
+              "Cancer",
+              "Leo",
+              "Virgo",
+              "Libra",
+              "Scorpio",
+              "Sagittarius",
+              "Capricorn",
+              "Aquarius",
+              "Pisces"
+            ]
+          }
+        }
+      },
+      "usesInPlay": [
+        "Use the signs as bonus conditions, collection objectives, or optional sign-matching rules.",
+        "Combine border and sphere zodiac for matching or joint scoring, or use the border-derived signs as a thematic layer for spatial and narrative play."
+      ]
+    },
+    "words": {
+      "sortOrder": 51,
+      "summary": [
+        "Words are the 150-card vocabulary layer for play, prompts, and narrative inspiration."
+      ],
+      "whyExists": [
+        "Words are the deck's narrative vocabulary and sit in the middle of many systems. They are inspired by the timeless and metaphorical feel of Tarot. Words can be simple but can have many different physical and narrative interpretations."
+      ],
+      "existingGameMappings": [
+        "Existing word and storytelling games can use card words as prompts, objectives, or vocabulary constraints."
+      ],
+      "novelGameUses": [
+        "New games can build around exact words, word families, future flavor text, or relationships between words and the deck's other systems."
+      ],
+      "relationships": [
+        "The [icons](/systems/icons) offer one interpretation of the words. The [Tarot](/systems/tarot) mark appears on 25 of the cards, and [first letters](/systems/first-letters) of the words are in the bottom corner. Words are also thematically related to the [suit](/systems/suits), [rank](/systems/ranks), [sphere](/systems/spheres) and [mode](/systems/modes) themes."
+      ],
+      "usesInPlay": [
+        "Use the words as storytelling prompts, objectives, or vocabulary constraints.",
+        "Build around exact words, related word families, or connections with the other systems. Words can also anchor narrative interpretations and future flavor text."
+      ]
+    },
+    "link-words": {
+      "sortOrder": 81,
+      "summary": [
+        "Link words turn the deck vocabulary into a richly connected structure."
+      ],
+      "whyExists": [
+        "Link words create a directed graph; each card points outward to 2 related others, creating patterns that are not based on position, suit, or rank. They appear in small text under the main word. These words also give another narrative interpretation of the card word."
+      ],
+      "existingGameMappings": [
+        "Existing games can use links as hints, adjacency permissions, or search targets."
+      ],
+      "novelGameUses": [
+        "New games can follow links as paths, build cycles or lists. They layer well with every partition because they cut across the deck in a different way."
+      ],
+      "relationships": [
+        "Links narratively relate to the card [word](/systems/words). Links never refer to a card with the same [icon](/systems/icons), and all cards are the target of at least one other."
+      ],
+      "usesInPlay": [
+        "Use the printed links as hints, search targets, or permissions to connect cards.",
+        "Follow links to build paths, cycles, or lists. Because the graph cuts across the deck differently from its partitions, it can be combined with any of them."
+      ]
+    },
+    "in-link-counts": {
+      "sortOrder": 85,
+      "summary": [
+        "In-link count measures how many other cards point at a card through the word-link graph."
+      ],
+      "whyExists": [
+        "In-link count measures graph centrality: how many other cards point toward a card's word. It is shown as tick marks between the link words."
+      ],
+      "existingGameMappings": [
+        "Existing games can use the count as a bonus, rarity, priority, or target value.  Most cards have 2 in-links; 4 and 5 are very rare."
+      ],
+      "novelGameUses": [
+        "New games can reward central cards, make low-link cards obscure objectives, or combine link count with link traversal."
+      ],
+      "relationships": [
+        "In-link count is the numeric face of the [link-words](/systems/link-words) graph."
+      ],
+      "usesInPlay": [
+        "Use the count as a bonus, rarity, priority, or target value. Most cards have two in-links; counts of four and five are very rare.",
+        "Reward well-connected cards, make low-link cards obscure objectives, or combine the count with a game that follows the links."
+      ]
+    },
+    "icon-groups": {
+      "sortOrder": 160,
+      "summary": [
+        "Icon groups split the deck into 3 groups of 50 cards, each with 25 icon pairs."
+      ],
+      "whyExists": [
+        "The full 150 card deck can be too unwieldy for icon-match play. This splits the deck into balanced subsets. Icon group is shown as one of 3 symbols in the bottom rail."
+      ],
+      "existingGameMappings": [
+        "Existing memory or matching games can use one icon group as a manageable mini-deck."
+      ],
+      "novelGameUses": [
+        "New games can draft or restrict by icon group, mix two groups, or make the group symbol a faction."
+      ],
+      "relationships": [
+        "Each group of 50 cards has exactly 25 [icon](/systems/icons) pairs, exactly 10 of each [suit](/systems/suits) color, and exactly 2 of each [mode](/systems/modes). Otherwise, they sample across the other deck systems like [suits](/systems/suits) and [ranks](/systems/ranks) and [spheres](/systems/spheres).",
+        "In v2, the lower rail combines the icon-group symbol shape, the filled-symbol [partition](/systems/partitions) value, and the end bars for [Icon Halves](/systems/icon-halves). These are three distinct properties sharing one rail."
+      ],
+      "usesInPlay": [
+        "Choose one group for a manageable 50-card memory or matching deck with 25 complete icon pairs.",
+        "Combine two groups, restrict a draft by group, or treat the group symbols as factions. Each group keeps the same exact color and mode balance."
+      ],
+      "authorsNote": [
+        "A matching game with all 75 icon pairs felt too unwieldy. Three smaller groups solved that practical problem, but I also wanted each group to remain useful as a deck. Balancing suit colors and modes made the groups more than arbitrary selections of pictures.",
+        "Read the design story: [Partition Rail](/articles/partition-rail), which describes these groups alongside the separate 1–5 score."
+      ]
+    },
+    "partitions": {
+      "sortOrder": 170,
+      "summary": [
+        "Partitions are an evenly distributed 1-5 point system."
+      ],
+      "whyExists": [
+        "Partitions are the 1-5 filled-symbol values on the lower rail. They provide a simple, evenly striped score across suits and ranks."
+      ],
+      "existingGameMappings": [
+        "Existing games can use partition as a small point value, bid, cost, or hand-building constraint."
+      ],
+      "novelGameUses": [
+        "New games can build balanced 30-card or 50-card subsets, require one of each partition, or combine partition with another system."
+      ],
+      "relationships": [
+        "In v2, the lower rail carries three signals: the filled-symbol count gives the [partition](/systems/partitions) value, the symbol shape identifies the [icon group](/systems/icon-groups), and the end bars identify the [icon half](/systems/icon-halves). The point value is evenly distributed across the deck, across each [suit](/systems/suits) and suit color, and across each [rank](/systems/ranks) and rank band."
+      ],
+      "usesInPlay": [
+        "Use the filled-symbol count as a small point value, bid, cost, or hand-building constraint.",
+        "Choose a single value for a balanced 30-card subset, require one of each value in a collection, or combine the score with another system. For a 50-card subset that preserves icon pairs, use an [icon group](/systems/icon-groups)."
+      ],
+      "authorsNote": [
+        "The small 1–5 score began as a separate idea from the icon groups. Combining them in one rail let the symbol shape identify the group while the filled-symbol count carried the score: two useful signals sharing the same space. V2 adds a third signal on that same rail: the end bars identify [Icon Halves](/systems/icon-halves).",
+        "Read the design story: [Partition Rail](/articles/partition-rail)."
+      ]
+    },
+    "icons": {
+      "sortOrder": 52,
+      "summary": [
+        "Icons are the basic card art; and provide one narrative interpretation of the card word."
+      ],
+      "whyExists": [
+        "Besides evoking the card word, icons are paired scene glyphs that can be used for matching gameplay. Exactly two cards share each icon. Pairs are always of a different suit color and rank. Visually simple, and shaded with the suit color."
+      ],
+      "existingGameMappings": [
+        "Memory games can match icon pairs. Storytelling, narrative or divination can use icons as prompt images. The Tarot major arcana cards have imagery that is loosely based on the traditional meanings."
+      ],
+      "novelGameUses": [
+        "New games can use the icon for matching, or as a role, location, or other signal."
+      ],
+      "relationships": [
+        "Icons sit at the visual center and connect the [word](/systems/words), [Tarot identity](/systems/tarot), and [icon groups](/systems/icon-groups). Icon pairs are always a different [suit](/systems/suits) and [rank](/systems/ranks)."
+      ],
+      "usesInPlay": [
+        "Match the pairs for memory games, or use the pictures as storytelling and divination prompts.",
+        "Interpret an icon as a role, location, event, or other signal. The Tarot cards’ imagery loosely reflects traditional meanings, while each image offers one interpretation of its card word."
+      ]
+    },
+    "tarot": {
+      "sortOrder": 190,
+      "summary": [
+        "Tarot marks identify the 25 cards that carry Tarot major-arcana roles."
+      ],
+      "whyExists": [
+        "The deck words are inspired by the timeless and metaphorical concepts in the Tarot deck. The major arcana themselves are contained in the high ranks of the first five suits and marked with a small τ. To be consistent, some arcana words have been modified (marked with \"τ-\") and 3 additional thematic 'bridge' cards (\"τ*\") have been added to round out the count to 25."
+      ],
+      "existingGameMappings": [
+        "Existing Tarot-inspired spreads can indentify the actual major arcana, and mix marked and unmarked cards as major/minor style roles."
+      ],
+      "novelGameUses": [
+        "New games can treat Tarot cards as powers, rare events, story beats, or special objectives."
+      ],
+      "relationships": [
+        "In addition to marking the [words](/systems/words), Tarot cards' [icons](/systems/icons) will carry some aspect of the traditional Tarot symbolism. Additionally, exactly one Tarot card is the emotional anchor for each [mode](/systems/modes). The last 2 digits of Tarot cards' [sequence numbers](/systems/sequence-numbers) are the canonical Tarot numbering."
+      ],
+      "usesInPlay": [
+        "Use the marked cards for Tarot-inspired spreads, distinguishing the traditional arcana from the added bridge cards. Marked and unmarked cards can serve major/minor-style roles.",
+        "In other games, Tarot membership can identify powers, rare events, story beats, or special objectives."
+      ]
+    },
+    "icon-halves": {
+      "summary": [
+        "Two 75-card halves each contain one card from every icon pair. The end bars on the partition row identify the half."
+      ],
+      "whyExists": [
+        "Choose either half for a complete set of 75 different icons, or combine the halves for matching pairs.",
+        "Icon Halves were added in v2 as the third signal on the lower rail. The filled-symbol count gives the [partition](/systems/partitions) value, the symbol shape identifies the [icon group](/systems/icon-groups), and the end bars identify the [icon half](/systems/icon-halves)."
+      ],
+      "existingGameMappings": [
+        "Use one half for games requiring unique pictures, or both for memory and matching games."
+      ],
+      "novelGameUses": [
+        "Use halves as teams, alternate card pools, or a way to select one card from each icon pair."
+      ],
+      "relationships": [
+        "Each [icon](/systems/icons) appears once in Half 1 and once in Half 2. Icon Half is separate from the 1-5 [Partition](/systems/partitions) value.",
+        "Each half also contains exactly one card for every [rank](/systems/ranks) x [suit color](/systems/suits#system-groups-heading) pair. Either half forms a 75-card deck with ranks 1-15 in each of the five colors."
+      ],
+      "usesInPlay": [
+        "Choose one half when every picture should be unique, or combine both halves for memory and matching pairs.",
+        "Use the halves as teams or alternate card pools. Either half also provides a 75-card deck with ranks 1–15 in each of the five suit colors."
+      ]
+    },
+    "standard-deck": {
+      "summary": [
+        "Corner triangles identify the 52 cards that form a standard playing-card deck."
+      ],
+      "whyExists": [
+        "Quickly separate a familiar 52-card deck from the full 150-card Tau deck."
+      ],
+      "existingGameMappings": [
+        "Use the marked cards for standard playing-card games. Ranks 1–13 represent ace through king."
+      ],
+      "novelGameUses": [
+        "Use standard-deck membership as a binary property or as a familiar core within a larger deck."
+      ],
+      "relationships": [
+        "The marked set contains Club, Spade, Heart, and Diamond at ranks 1–13: 52 marked cards and 98 unmarked cards."
+      ],
+      "usesInPlay": [
+        "Use the 52 marked cards for standard playing-card games. Ranks 1–13 represent ace through king.",
+        "For other designs, use membership as a binary property or keep the familiar 52 cards as a core within a larger deck."
+      ]
+    }
+  }
+}

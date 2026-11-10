@@ -1,0 +1,28 @@
+@page "/articles"
+@model TauWeb.Web.Pages.Articles.IndexModel
+@{
+    ViewData["Title"] = "Articles";
+}
+<section class="page-band article-index">
+    <p class="eyebrow">Behind the deck</p>
+    <h1>Articles</h1>
+    <p class="lede">How a familiar deck of cards became Tau. Follow the design from its first ideas through words, pictures, interlocking systems, and the discoveries along the way.</p>
+    <p class="article-intro">Start at the beginning or pick a topic that catches your eye. Drafts are available to read and may include open questions and notes for future illustrations. Titles marked Pending will open as articles are released.</p>
+    <ol class="article-list">
+        @foreach (var article in Model.Articles)
+        {
+            <li>
+                @if (article.IsLive)
+                {
+                    <a href="@article.Url">@article.Title</a>
+                    @if (article.Status == "draft") { <span class="article-status">Draft</span> }
+                }
+                else
+                {
+                    <span class="article-teaser-title">@article.Title</span>
+                    <span class="article-status">Pending</span>
+                }
+            </li>
+        }
+    </ol>
+</section>

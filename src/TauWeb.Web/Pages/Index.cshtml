@@ -1,0 +1,24 @@
+@page
+@model IndexModel
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "Tau";
+}
+
+<section class="home">
+    <div class="home-copy">
+        <p class="eyebrow">Deck library</p>
+        <h1>Tau</h1>
+        <p class="lede">One deck. Familiar games. Unexpected possibilities.</p>
+        <p class="home-intro">Tau starts with something you already know: a deck you can shuffle, deal, and play. Its 150 cards bring together words, paired pictures, and carefully balanced symbols, giving you more ways to match, move, tell stories, and invent games of your own. Start with the familiar suits and ranks, then explore as much of the rest as you like. Browse the cards, discover how the systems connect, and follow the design story. @(Configuration.GetValue<bool>("Games:ShowLibrary") ? "Visit the game library for ways to play." : "Games for the Tau deck are coming soon.")</p>
+        <div class="actions">
+            <a class="button primary" asp-page="/Cards/Index">Browse cards</a>
+            <a class="button" asp-page="/Systems/Index">Explore systems</a>
+            <a class="button" asp-page="/Articles/Index">Read the story</a>
+            <a class="button" asp-page="/Games/Index">Games</a>
+        </div>
+    </div>
+    <div class="home-card">
+        <img src="@Edition.Asset("/generated/cards/cardback-display.webp")" asp-append-version="true" alt="Tau card back" />
+    </div>
+</section>

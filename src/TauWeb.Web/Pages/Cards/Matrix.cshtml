@@ -1,0 +1,65 @@
+@page "/cards/matrix"
+@model TauWeb.Web.Pages.Cards.MatrixModel
+@using System.Text.Json
+@{
+    ViewData["Title"] = "Card Matrix";
+    var json = JsonSerializer.Serialize(Model.Data.Cards, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+    var groups = Model.Data.Systems.SelectMany(system => system.Groups.Select(group => new
+    {
+        systemKey = system.Key,
+        systemName = system.Name,
+        group.Slug,
+        group.Name,
+        group.FilterKey,
+        group.FilterValue,
+        group.Count,
+        group.SortOrder,
+        group.Filter
+    }));
+    var groupJson = JsonSerializer.Serialize(groups, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+}
+
+<section class="matrix-workspace" data-matrix-page>
+    <header class="matrix-toolbar" aria-label="Matrix controls">
+        <div>
+            <a class="back-link" asp-page="/Cards/Index">Cards</a>
+            <h1>Matrix</h1>
+        </div>
+        <label>Rows <select data-row-axis></select></label>
+        <label>Columns <select data-column-axis></select></label>
+        <button class="button compact-button" type="button" data-swap-axes>Swap</button>
+        <button class="button compact-button" type="button" data-clear-cell>Clear</button>
+    </header>
+
+    <section class="matrix-main" aria-label="Card matrix">
+        <p class="phone-only matrix-phone-hint">Swipe to see more columns. Tap a cell to see its cards.</p>
+        <div class="matrix-scroll">
+            <table class="matrix-table">
+                <thead data-matrix-head></thead>
+                <tbody data-matrix-body></tbody>
+            </table>
+        </div>
+
+        <section class="matrix-results" aria-label="Matrix cell results">
+            <div class="matrix-results-bar">
+                <strong data-cell-title>Select a cell</strong>
+                <span><span data-cell-count>0</span> cards</span>
+                <a class="button compact-button" href="/cards" data-open-browser aria-disabled="true">Open in Browser</a>
+            </div>
+            <div class="thumb-scroll matrix-thumb-scroll">
+                <div class="thumb-grid" data-matrix-card-grid></div>
+            </div>
+        </section>
+    </section>
+
+    <aside class="selected-card matrix-selected-card" data-matrix-selected-card>
+        <p>Select a cell to inspect matching cards.</p>
+    </aside>
+</section>
+
+<script type="application/json" id="cards-json">@Html.Raw(json)</script>
+<script type="application/json" id="filter-groups-json">@Html.Raw(groupJson)</script>
+
+@section Scripts {
+    <script type="module" src="/js/matrix.js" asp-append-version="true"></script>
+}

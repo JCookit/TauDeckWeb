@@ -1,0 +1,71 @@
+@page "/games"
+@model TauWeb.Web.Pages.Games.IndexModel
+@{
+    ViewData["Title"] = "Games";
+}
+
+@if (!Model.ShowLibrary)
+{
+    <section class="page-band">
+        <p class="eyebrow">Coming soon</p>
+        <h1>Games</h1>
+        <p class="lede">This is where you’ll find original games designed for Tau, with rules you can try at the table, and ways to play familiar games with the Tau deck.</p>
+        <p>As the library grows, there’ll be room for the community to playtest rules, share adaptations, and contribute games of their own.</p>
+    </section>
+    return;
+}
+
+<section class="page-band">
+    <h1>Game library</h1>
+    <p class="lede">Database-backed records for existing game mappings and future Tau-native games.</p>
+    <form class="game-tools" method="get" role="search">
+        <input type="search" name="q" value="@Model.Query" placeholder="Search games, mechanics, or components" aria-label="Search games" />
+        <select name="players" aria-label="Player count">
+            <option value="">Any players</option>
+            <option value="2">2 players</option>
+            <option value="3">3 players</option>
+            <option value="4">4 players</option>
+            <option value="5">5 players</option>
+            <option value="6">6 players</option>
+        </select>
+        <select name="complexity" aria-label="Complexity">
+            <option value="">Any complexity</option>
+            <option value="1">Light</option>
+            <option value="2">Medium</option>
+            <option value="3">Heavy</option>
+        </select>
+    </form>
+    <div class="game-grid">
+        @foreach (var game in Model.Games)
+        {
+            <a class="game-card" asp-page="/Games/Detail" asp-route-slug="@game.Slug">
+                <span class="game-status">@game.Status</span>
+                <h2>@game.Name</h2>
+                <p class="compatibility-tag">@( game.CompatibleEditions.Count == 0 ? "All deck editions" : "Deck editions: " + string.Join(", ", game.CompatibleEditions))</p>
+                <p>@game.Summary</p>
+                <dl class="game-stats">
+                    <div>
+                        <dt>Players</dt>
+                        <dd>@game.PlayerCount</dd>
+                    </div>
+                    <div>
+                        <dt>Minutes</dt>
+                        <dd>@game.PlayTime</dd>
+                    </div>
+                    <div>
+                        <dt>Weight</dt>
+                        <dd>@game.Complexity.ToString("0.##")</dd>
+                    </div>
+                    <div>
+                        <dt>Map</dt>
+                        <dd>@game.MapStrength</dd>
+                    </div>
+                </dl>
+                @if (game.Components.Count > 0)
+                {
+                    <p class="game-components">@string.Join(", ", game.Components)</p>
+                }
+            </a>
+        }
+    </div>
+</section>

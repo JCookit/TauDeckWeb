@@ -1,0 +1,28 @@
+@page "/articles/{slug}"
+@model TauWeb.Web.Pages.Articles.DetailModel
+@{
+    ViewData["Title"] = Model.Article.Title;
+}
+<section class="page-band article-page">
+    <a class="back-link" asp-page="/Articles/Index">All articles</a>
+    <header class="article-header">
+        <p class="eyebrow">Behind the deck · @Model.Position of @Model.Total</p>
+        <h1>@Model.Article.Title</h1>
+        <div class="article-meta">
+            @if (Model.Article.Status == "draft") { <span class="article-status">Draft</span> }
+            <a asp-page-handler="Source" asp-route-slug="@Model.Article.Slug">Download Markdown</a>
+        </div>
+    </header>
+    <article class="article-body">@Html.Raw(Model.Html)</article>
+    <nav class="article-pagination" aria-label="Article navigation">
+        @if (Model.Previous is not null)
+        {
+            <a class="article-previous" href="@Model.Previous.Url" rel="prev"><span>Previous</span>@Model.Previous.Title</a>
+        }
+        <a class="article-all" asp-page="/Articles/Index">All articles</a>
+        @if (Model.Next is not null)
+        {
+            <a class="article-next" href="@Model.Next.Url" rel="next"><span>Next</span>@Model.Next.Title</a>
+        }
+    </nav>
+</section>

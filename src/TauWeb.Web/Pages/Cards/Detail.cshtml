@@ -1,0 +1,146 @@
+@page "/cards/{slug}"
+@model TauWeb.Web.Pages.Cards.DetailModel
+@{
+    ViewData["Title"] = Model.Card.Name;
+}
+@functions {
+    private const string NoneValue = "__none__";
+
+    private string FilterHref(string key, object? value)
+    {
+        var text = value is bool boolean
+            ? boolean.ToString().ToLowerInvariant()
+            : value?.ToString() ?? "";
+        return $"/cards?{key}={Uri.EscapeDataString(text)}";
+    }
+
+    private string FilterValue(string value)
+    {
+        return string.IsNullOrWhiteSpace(value) ? NoneValue : value;
+    }
+
+    private string DisplayOrNone(string value)
+    {
+        return string.IsNullOrWhiteSpace(value) ? "None" : value;
+    }
+
+    private string DirectionDisplay(string value)
+    {
+        return value.ToUpperInvariant();
+    }
+
+    private string Glyph(string key)
+    {
+        return Model.Card.GlyphImages.TryGetValue(key, out var image) ? image : "";
+    }
+
+    private string BorderClasses()
+    {
+        var classes = new List<string> { "border-mini" };
+        if (Model.Card.BorderTop > 0) classes.Add("has-top");
+        if (Model.Card.BorderRight > 0) classes.Add("has-right");
+        if (Model.Card.BorderBottom > 0) classes.Add("has-bottom");
+        if (Model.Card.BorderLeft > 0) classes.Add("has-left");
+        return string.Join(" ", classes);
+    }
+}
+
+<section class="detail">
+    <div class="detail-image">
+        <img src="@Model.Card.DisplayImage" alt="@Model.Card.Name" />
+    </div>
+    <div class="detail-copy">
+        <a class="back-link" asp-page="/Cards/Index">Cards</a>
+        <h1>@Model.Card.Name</h1>
+        <p class="lede">@Model.Card.SuitName @Model.Card.Rank · @Model.Card.Sphere @Model.Card.SphereNumber · @Model.Card.Mode @Model.Card.ModeNumber</p>
+        <div class="filter-actions" aria-label="Card filters">
+            <a class="filter-action" href="@FilterHref("rank", Model.Card.Rank)" title="Rank: @Model.Card.Rank" aria-label="Rank: @Model.Card.Rank"><span class="filter-action-caption">Rank</span><span class="filter-action-visual"><img src="@Glyph("rank")" alt="Rank" /></span><span class="filter-action-value">@Model.Card.Rank</span></a>
+            <a class="filter-action" href="@FilterHref("suitName", Model.Card.SuitName)" title="Suit: @Model.Card.SuitName" aria-label="Suit: @Model.Card.SuitName"><span class="filter-action-caption">Suit</span><span class="filter-action-visual"><img src="@Glyph("suit")" alt="Suit" /></span><span class="filter-action-value">@Model.Card.SuitName</span></a>
+            @if (Model.Card.SuitShape.Length > 0)
+            {
+                var shape = Model.Card.SuitShape.ToLowerInvariant();
+                <a class="filter-action" href="@FilterHref("suitShape", $"group:suits:{shape}")" aria-label="Suit shape: @Model.Card.SuitShape">
+                    <span class="filter-action-caption">Suit shape</span>
+                    <span class="filter-action-visual"><span class="suit-shape-mark @shape" data-suit-color="@Model.Card.Color" aria-hidden="true"></span></span>
+                    <span class="filter-action-value">@Model.Card.SuitShape</span>
+                </a>
+            }
+            @if (Model.Card.SequenceDigit.Length > 0)
+            {
+                <a class="filter-action" href="@FilterHref("sequenceDigit", $"group:sequence-numbers:ending-{Model.Card.SequenceDigit}")" aria-label="Last digit: @Model.Card.SequenceDigit">
+                    <span class="filter-action-caption">Last digit</span>
+                    <span class="filter-action-visual"><span class="filter-action-text">@Model.Card.SequenceDigit</span></span>
+                </a>
+            }
+            <a class="filter-action" href="@FilterHref("sphereNumber", Model.Card.SphereNumber)" title="Sphere: @Model.Card.Sphere (@Model.Card.SphereNumber)" aria-label="Sphere: @Model.Card.Sphere (@Model.Card.SphereNumber)"><span class="filter-action-caption">Sphere</span><span class="filter-action-visual"><img src="@Glyph("sphere")" alt="Sphere" /></span><span class="filter-action-value">@Model.Card.Sphere (@Model.Card.SphereNumber)</span></a>
+            <a class="filter-action" href="@FilterHref("modeNumber", Model.Card.ModeNumber)" title="Mode: @Model.Card.Mode (@Model.Card.ModeNumber)" aria-label="Mode: @Model.Card.Mode (@Model.Card.ModeNumber)"><span class="filter-action-caption">Mode</span><span class="filter-action-visual"><img src="@Glyph("mode")" alt="Mode" /></span><span class="filter-action-value">@Model.Card.Mode (@Model.Card.ModeNumber)</span></a>
+            <a class="filter-action" href="@FilterHref("sphereZodiac", FilterValue(Model.Card.SphereZodiac))" title="Zodiac: @DisplayOrNone(Model.Card.SphereZodiac)" aria-label="Zodiac: @DisplayOrNone(Model.Card.SphereZodiac)"><span class="filter-action-caption">Zodiac</span><span class="filter-action-visual">@if (!string.IsNullOrWhiteSpace(Glyph("zodiac"))) { <img src="@Glyph("zodiac")" alt="Zodiac" /> }</span><span class="filter-action-value">@(!string.IsNullOrWhiteSpace(Model.Card.SphereZodiac) ? Model.Card.SphereZodiac : "")</span></a>
+            @if (!string.IsNullOrWhiteSpace(Model.Card.FirstLetter))
+            {
+                <a class="filter-action" href="@FilterHref("firstLetter", Model.Card.FirstLetter)" title="Letter: @Model.Card.FirstLetter" aria-label="Letter: @Model.Card.FirstLetter"><span class="filter-action-caption">Letter</span><span class="filter-action-visual"><span class="filter-action-text">@Model.Card.FirstLetter</span></span><span class="filter-action-value"></span></a>
+            }
+            <a class="filter-action" href="@FilterHref("letterScore", Model.Card.LetterScore)" title="Letter score: @Model.Card.LetterScore" aria-label="Letter score: @Model.Card.LetterScore"><span class="filter-action-caption">Score</span><span class="filter-action-visual"><img src="@Glyph("letterScore")" alt="Letter score" /></span><span class="filter-action-value">@Model.Card.LetterScore</span></a>
+            <a class="filter-action" href="@FilterHref("totalBorderScore", Model.Card.TotalBorderScore)" title="Border score: @Model.Card.TotalBorderScore" aria-label="Border score: @Model.Card.TotalBorderScore"><span class="filter-action-caption">Border</span><span class="filter-action-visual"><img src="@Glyph("borderScore")" alt="Border score" /></span><span class="filter-action-value">@Model.Card.TotalBorderScore</span></a>
+            <a class="filter-action" href="@FilterHref("borderArrangement", Model.Card.BorderArrangement)" title="Border arrangement: @Model.Card.BorderArrangement" aria-label="Border arrangement: @Model.Card.BorderArrangement">
+                <span class="filter-action-caption">Sides</span><span class="filter-action-visual"><span class="@BorderClasses()"><span class="chevrons top"></span><span class="chevrons right"></span><span class="chevrons bottom"></span><span class="chevrons left"></span></span></span><span class="filter-action-value"></span>
+            </a>
+            <a class="filter-action" href="@FilterHref("borderZodiac", FilterValue(Model.Card.BorderZodiac))" title="Border zodiac: @DisplayOrNone(Model.Card.BorderZodiac)" aria-label="Border zodiac: @DisplayOrNone(Model.Card.BorderZodiac)"><span class="filter-action-caption">B. Zodiac</span><span class="filter-action-visual">@if (!string.IsNullOrWhiteSpace(Glyph("borderZodiac"))) { <img src="@Glyph("borderZodiac")" alt="Border zodiac" /> }</span><span class="filter-action-value">@(!string.IsNullOrWhiteSpace(Model.Card.BorderZodiac) ? Model.Card.BorderZodiac : "")</span></a>
+            <a class="filter-action" href="@FilterHref("direction", Model.Card.Direction)" title="Direction: @DirectionDisplay(Model.Card.Direction)" aria-label="Direction: @DirectionDisplay(Model.Card.Direction)"><span class="filter-action-caption">Dir</span><span class="filter-action-visual"><img src="@Glyph("direction")" alt="Direction" /></span><span class="filter-action-value">@DirectionDisplay(Model.Card.Direction)</span></a>
+            <a class="filter-action" href="@FilterHref("partitionGroup", Model.Card.PartitionGroup)" title="Partition: @Model.Card.PartitionGroup" aria-label="Partition: @Model.Card.PartitionGroup">
+                <span class="filter-action-caption">Part</span>
+                <span class="filter-action-visual">
+                    <span class="partition-art" aria-hidden="true">
+                        <span class="partition-row">
+                            @for (var position = 1; position <= 5; position++)
+                            {
+                                var state = position <= Model.Card.PartitionGroup ? "1" : "0";
+                                <img src="@Edition.Asset($"/generated/glyphs/partition{Model.Card.IconGroup}_{state}.webp")" alt="" />
+                            }
+                        </span>
+                    </span>
+                </span>
+                <span class="filter-action-value">@Model.Card.PartitionGroup</span>
+            </a>
+            <a class="filter-action" href="@FilterHref("linkInDegree", Model.Card.LinkInDegree)" title="In-links: @Model.Card.LinkInDegree" aria-label="In-links: @Model.Card.LinkInDegree">
+                <span class="filter-action-caption">In-links</span>
+                <span class="filter-action-visual">
+                    <span class="in-link-count-art" aria-hidden="true">
+                        @for (var item = 0; item < Model.Card.LinkInDegree; item++)
+                        {
+                            <img src="@Edition.Asset("/generated/glyphs/indegree.webp")" alt="" />
+                        }
+                    </span>
+                </span>
+                <span class="filter-action-value">@Model.Card.LinkInDegree</span>
+            </a>
+            @if (Model.Card.IconHalf is not null)
+            {
+                <a class="filter-action" href="@FilterHref("iconHalf", Model.Card.IconHalf)"><span class="filter-action-caption">Half</span><span class="filter-action-visual"><partial name="_IconHalfBars" model='Glyph("iconHalf")' /></span><span class="filter-action-value">@Model.Card.IconHalf</span></a>
+                <a class="filter-action" href="@FilterHref("isStandardDeck", Model.Card.IsStandardDeck)"><span class="filter-action-caption">Standard</span><span class="filter-action-visual">@if (Model.Card.IsStandardDeck == true) { <span class="standard-deck-mark" aria-hidden="true"></span> }</span><span class="filter-action-value">@(Model.Card.IsStandardDeck == true ? "Yes" : "No")</span></a>
+            }
+            <a class="filter-action" href="@FilterHref("iconGroup", Model.Card.IconGroup)" title="Icon group: @Model.Card.IconGroup" aria-label="Icon group: @Model.Card.IconGroup"><span class="filter-action-caption">Group</span><span class="filter-action-visual"><img src="@Glyph("iconGroup")" alt="Icon group" /></span><span class="filter-action-value">@Model.Card.IconGroup</span></a>
+            <a class="filter-action" href="@FilterHref("isTarot", Model.Card.IsTarot)" title="Tarot: @(Model.Card.IsTarot ? "Yes" : "No")" aria-label="Tarot: @(Model.Card.IsTarot ? "Yes" : "No")"><span class="filter-action-caption">Tarot</span><span class="filter-action-visual">@if (Model.Card.IsTarot) { <span class="filter-action-text tau-glyph">τ</span> }</span><span class="filter-action-value">@(Model.Card.IsTarot ? "Yes" : "No")</span></a>
+            <a class="filter-action" href="@FilterHref("iconNumber", Model.Card.IconNumber)" title="Icon: @Model.Card.IconNumber @Model.Card.IconName" aria-label="Icon: @Model.Card.IconNumber @Model.Card.IconName"><span class="filter-action-caption">Icon</span><span class="filter-action-visual"><img src="@Glyph("icon")" alt="Icon" /></span><span class="filter-action-value">@Model.Card.IconNumber @Model.Card.IconName</span></a>
+        </div>
+        <dl class="metadata">
+            <dt>Sequence</dt><dd>@Model.Card.Sequence</dd>
+            <dt>Word</dt><dd>@Model.Card.Word</dd>
+            <dt>Rank theme</dt><dd>@Model.Card.RankTheme</dd>
+            <dt>Sphere source</dt><dd>@Model.Card.SphereFullName</dd>
+            <dt>Sphere zodiac</dt><dd>@Model.Card.SphereZodiac</dd>
+            <dt>Mode number</dt><dd>@Model.Card.ModeNumber</dd>
+            <dt>First letter</dt><dd>@Model.Card.FirstLetter</dd>
+            <dt>Direction</dt><dd>@DirectionDisplay(Model.Card.Direction)</dd>
+            <dt>Letter score</dt><dd>@Model.Card.LetterScore</dd>
+            <dt>Total border</dt><dd>@Model.Card.TotalBorderScore</dd>
+            <dt>Border zodiac</dt><dd>@Model.Card.BorderZodiac</dd>
+            <dt>Border sides</dt><dd>@Model.Card.BorderArrangement</dd>
+            <dt>Links</dt><dd>@Model.Card.LinkWords</dd>
+            <dt>In-links</dt><dd>@Model.Card.LinkInDegree</dd>
+            <dt>Icon</dt><dd>@Model.Card.IconNumber @Model.Card.IconName</dd>
+            <dt>Icon detail</dt><dd>@Model.Card.IconDescription</dd>
+            <dt>Icon group</dt><dd>@Model.Card.IconGroup</dd>
+            <dt>Partition</dt><dd>@Model.Card.PartitionGroup</dd>
+        </dl>
+    </div>
+</section>

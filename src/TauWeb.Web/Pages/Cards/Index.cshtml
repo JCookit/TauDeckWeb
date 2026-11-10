@@ -1,0 +1,118 @@
+@page "/cards"
+@model TauWeb.Web.Pages.Cards.IndexModel
+@using System.Text.Json
+@{
+    ViewData["Title"] = "Cards";
+    var json = JsonSerializer.Serialize(Model.Data.Cards, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+    var groups = Model.Data.Systems.SelectMany(system => system.Groups.Select(group => new
+    {
+        systemKey = system.Key,
+        systemName = system.Name,
+        group.Slug,
+        group.Name,
+        group.FilterKey,
+        group.FilterValue,
+        group.Count,
+        group.SortOrder,
+        group.Filter
+    }));
+    var groupJson = JsonSerializer.Serialize(groups, new JsonSerializerOptions(JsonSerializerDefaults.Web));
+}
+
+<section class="workspace cards-workspace" data-cards-page>
+    <aside class="filters" aria-label="Card filters">
+        <h1>Cards</h1>
+        <a class="button compact-button matrix-link" asp-page="/Cards/Matrix">Matrix</a>
+        <div class="filter-search-row">
+            <input class="search" type="search" placeholder="Search card, word, link, or icon" data-filter="q" />
+            <button class="button filter-clear" type="button" data-clear-filters aria-label="Clear filters" title="Clear filters">X</button>
+        </div>
+        <label>Suit <select data-filter="suitName"></select></label>
+        <label>Rank <select data-filter="rank"></select></label>
+        <details class="more-filters" data-more-filters>
+            <summary>More filters</summary>
+            <label>Sequence last digit <select data-filter="sequenceDigit"></select></label>
+            <label>Sphere <select data-filter="sphereNumber"></select></label>
+            <label>Mode <select data-filter="modeNumber"></select></label>
+            <label>First letter <select data-filter="firstLetter"></select></label>
+            <label>Letter score <select data-filter="letterScore"></select></label>
+            <label>Sphere zodiac <select data-filter="sphereZodiac"></select></label>
+            <label>Direction <select data-filter="direction"></select></label>
+            <label>Total border <select data-filter="totalBorderScore"></select></label>
+            <label>Border zodiac <select data-filter="borderZodiac"></select></label>
+            <label>Border arrangement <select data-filter="borderArrangement"></select></label>
+            <label>Tarot <select data-filter="isTarot"></select></label>
+            <label>Icon group <select data-filter="iconGroup"></select></label>
+            <label>Partition group <select data-filter="partitionGroup"></select></label>
+            @if (Model.Data.Cards.Any(card => card.IconHalf is not null))
+            {
+                <label>Icon half <select data-filter="iconHalf"></select></label>
+                <label>Standard deck <select data-filter="isStandardDeck"></select></label>
+            }
+            <label>Icon <select data-filter="iconNumber"></select></label>
+            <label>In-links <select data-filter="linkInDegree"></select></label>
+        </details>
+        <div class="phone-only filter-sheet-footer">
+            <button class="button primary" type="button" data-show-cards>Show cards</button>
+        </div>
+    </aside>
+
+    <section class="card-results">
+        <div class="phone-only cards-phone-toolbar">
+            <h1>Cards</h1>
+            <button class="button compact-button" type="button" data-open-filters aria-haspopup="dialog">Filters</button>
+            <a class="button compact-button" asp-page="/Cards/Matrix">Matrix</a>
+        </div>
+        <div class="results-bar">
+            <span data-result-count>@Model.Data.Cards.Count</span> cards
+        </div>
+        <div class="table-wrap">
+            <table class="card-table">
+                <thead>
+                    <tr>
+                        <th data-sort="sequence">#</th>
+                        <th data-sort="name">Card</th>
+                        <th data-sort="suitName">Suit</th>
+                        <th data-sort="rank">Rank</th>
+                        <th data-sort="sphereNumber">Sphere #</th>
+                        <th data-sort="sphere">Sphere</th>
+                        <th data-sort="modeNumber">Mode #</th>
+                        <th data-sort="mode">Mode</th>
+                        <th data-sort="sphereZodiac">Sphere zodiac</th>
+                        <th data-sort="firstLetter">Letter</th>
+                        <th data-sort="letterScore">Score</th>
+                        <th data-sort="linkWords">Links</th>
+                        <th data-sort="linkInDegree">In-links</th>
+                        <th data-sort="iconGroup">Icon group</th>
+                        <th data-sort="partitionGroup">Partition</th>
+                        <th data-sort="iconNumber">Icon</th>
+                        <th data-sort="direction">Dir</th>
+                        <th data-sort="totalBorderScore">Border</th>
+                        <th data-sort="borderArrangement">Arrangement</th>
+                        <th data-sort="borderZodiac">Border zodiac</th>
+                        @if (Model.Data.Cards.Any(card => card.IconHalf is not null))
+                        {
+                            <th data-sort="iconHalf">Icon half</th>
+                            <th data-sort="isStandardDeck">Standard deck</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody data-card-table></tbody>
+            </table>
+        </div>
+        <div class="thumb-scroll">
+            <div class="thumb-grid" data-card-grid></div>
+        </div>
+    </section>
+
+    <aside class="selected-card" data-selected-card>
+        <p>Select a card to inspect it.</p>
+    </aside>
+</section>
+
+<script type="application/json" id="cards-json">@Html.Raw(json)</script>
+<script type="application/json" id="filter-groups-json">@Html.Raw(groupJson)</script>
+
+@section Scripts {
+    <script type="module" src="/js/cards.js" asp-append-version="true"></script>
+}

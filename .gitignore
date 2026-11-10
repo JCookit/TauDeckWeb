@@ -1,0 +1,17 @@
+bin/
+obj/
+.vs/
+.vscode/
+TestResults/
+artifacts/
+src/TauWeb.Web/wwwroot/generated/
+src/TauWeb.Web/wwwroot/content/*
+!src/TauWeb.Web/wwwroot/content/system-text.json
+src/TauWeb.Web/wwwroot/assets/
+*.user
+*.suo
+
+# Compiled Bicep template; source is infra/main.bicep.
+infra/main.json
+
+/_site/

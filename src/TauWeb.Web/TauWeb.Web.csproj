@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Markdig" Version="1.5.1" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.47.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TauWeb.Core\TauWeb.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Legacy import outputs are test fixtures, not a third live edition. -->
+    <Content Remove="wwwroot/generated/**;wwwroot/content/tau-data.json;wwwroot/content/system-text.json" />
+    <Content Include="Content/Articles/**/*.md" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Update="Content/games.seed.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

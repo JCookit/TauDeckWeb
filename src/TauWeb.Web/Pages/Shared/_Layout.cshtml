@@ -1,0 +1,49 @@
+@{
+    const string ContactEmail = "info@taudeck.com";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tau</title>
+    <link rel="icon" type="image/svg+xml" href="~/favicon.svg" asp-append-version="true" />
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body data-edition="@Edition.Id" data-asset-root="/editions/@Edition.Id/generated">
+    <header>
+        <nav class="topbar" aria-label="Primary">
+            <a class="brand" asp-page="/Index">Tau</a>
+            <div class="navlinks">
+                <a asp-page="/Cards/Index">Cards</a>
+                <a asp-page="/Systems/Index">Systems</a>
+                <a asp-page="/Articles/Index">Articles</a>
+                <a asp-page="/Games/Index">Games</a>
+            </div>
+            @if (!Edition.IsGlobal)
+            {
+                <div class="edition-switch" aria-label="Deck edition">
+                    @foreach (var item in Edition.Editions)
+                    {
+                        <a href="@Edition.SwitchUrl(item.Id)" data-switch-edition="@item.Id" class="edition-option @(item.Id == Edition.Id ? "is-current" : "")" aria-current="@(item.Id == Edition.Id ? "true" : "false")">
+                            @item.Name <span class="edition-tag">@item.Tag</span>
+                        </a>
+                    }
+                </div>
+            }
+        </nav>
+    </header>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <span>Tau deck library</span>
+        <a href="@($"mailto:{ContactEmail}")">@ContactEmail</a>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

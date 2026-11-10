@@ -1,0 +1,46 @@
+@{
+    // Hit boxes use the original SVG layer's coordinates.
+    var labels = new (string Text, string Key, string X, string Y, string Width)[]
+    {
+        ("Standard Deck", "standard-deck", "1.82", "28.4", "37"),
+        ("Rank", "ranks", "24.3", "36.0", "15"),
+        ("Suit", "suits", "27.4", "46.8", "12"),
+        ("Rank Glyph", "ranks", "9", "60", "30"),
+        ("Border Zodiac", "border-zodiac", "1.82", "106.6", "37"),
+        ("Border Score", "border-scores", "6", "112.6", "33"),
+        ("Direction", "directions", "14.4", "118.2", "25"),
+        ("Letter Score", "letter-scores", "8.3", "127.7", "31"),
+        ("First Letter", "first-letters", "10.3", "141.1", "29"),
+        ("Rank Rail", "ranks", "144.6", "24.14", "27"),
+        ("Sequence Number", "sequence-numbers", "144.8", "34.6", "44.48"),
+        ("Mode", "modes", "145.7", "47.5", "15"),
+        ("Sphere", "spheres", "145.6", "59.5", "20"),
+        ("Sphere Zodiac", "sphere-zodiac", "145.4", "70.2", "38"),
+        ("Border", "border-arrangements", "145.7", "79.5", "21"),
+        ("Icon", "icons", "145.7", "96.4", "13"),
+        ("Word", "words", "145.2", "105.3", "15"),
+        ("Tarot mark", "tarot", "145.7", "111.4", "30"),
+        ("Link Words", "link-words", "145.3", "122.2", "29"),
+        ("In-Link Count", "in-link-counts", "145.4", "128", "34"),
+        ("Partition", "partitions", "145.3", "137.55", "25"),
+        ("Icon Group", "icon-groups", "145.5", "142.55", "29"),
+        ("Icon Half", "icon-halves", "145.6", "150.25", "24")
+    };
+}
+
+<figure class="card-anatomy">
+    <figcaption>Explore a Tau card by selecting a label.</figcaption>
+    <div class="card-anatomy-scroll">
+        <svg viewBox="0 0 187.47246 146.8085" role="group" aria-label="Anatomy of a Tau card">
+            <image href="/editions/v2/content/card-anatomy.svg" width="187.47246" height="146.8085" aria-hidden="true" />
+            <g transform="translate(-1.81143,-24.136257)">
+                @foreach (var label in labels)
+                {
+                    <a href="@Edition.Url($"/systems/{label.Key}")" aria-label="@label.Text">
+                        <rect x="@label.X" y="@label.Y" width="@label.Width" height="5" rx="0.6" />
+                    </a>
+                }
+            </g>
+        </svg>
+    </div>
+</figure>

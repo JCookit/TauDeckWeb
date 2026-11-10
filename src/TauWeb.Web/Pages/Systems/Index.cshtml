@@ -1,0 +1,47 @@
+@page "/systems"
+@model TauWeb.Web.Pages.Systems.IndexModel
+@using TauWeb.Web.Rendering
+@{
+    ViewData["Title"] = "Systems";
+}
+@functions {
+    private static string SystemCountText(TauWeb.Core.Models.TauSystem system)
+    {
+        if (system.Instances.Count == 0 && system.Groups.Count == 0)
+        {
+            return "Overview";
+        }
+
+        if (system.Groups.Count == 0)
+        {
+            return $"{system.Instances.Count} instances";
+        }
+
+        if (system.Instances.Count == 0)
+        {
+            return $"{system.Groups.Count} groups";
+        }
+
+        return $"{system.Instances.Count} instances, {system.Groups.Count} groups";
+    }
+}
+
+<section class="page-band">
+    <h1>Glyphs and systems</h1>
+    <p class="lede">Tau is built from layered systems. Each page explains why the system exists, how it can be used in games, and which cards match each value.</p>
+    @if (Edition.Id == "v2")
+    {
+        <partial name="_CardAnatomy" />
+    }
+    <div class="system-grid">
+        @foreach (var system in Model.Data.Systems)
+        {
+            <a class="system-card" asp-page="/Systems/Detail" asp-route-key="@system.Key">
+                <span>@SystemCountText(system)</span>
+                <h2>@system.Name</h2>
+                <p>@Html.Raw(MarkdownText.Inline(system.Summary, url => Edition.Url(url)))</p>
+                <strong>Explore @system.Name.ToLowerInvariant()</strong>
+            </a>
+        }
+    </div>
+</section>

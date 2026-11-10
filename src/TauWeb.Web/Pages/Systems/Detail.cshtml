@@ -1,0 +1,205 @@
+@page "/systems/{key}"
+@model TauWeb.Web.Pages.Systems.DetailModel
+@using TauWeb.Web.Rendering
+@inject TauWeb.Web.Services.TauArticleStore ArticleStore
+@{
+    ViewData["Title"] = Model.System.Name;
+    var liveArticles = ArticleStore.GetAll().Where(article => article.IsLive)
+        .Select(article => article.Url).ToHashSet(StringComparer.OrdinalIgnoreCase);
+    string? ResolveLink(string url)
+    {
+        var path = url.Split('?', '#')[0].TrimEnd('/');
+        return path.StartsWith("/articles/", StringComparison.OrdinalIgnoreCase) && !liveArticles.Contains(path)
+            ? null : Edition.Url(url);
+    }
+}
+@functions {
+    private static string CardsHref(TauWeb.Core.Models.TauSystemInstance instance)
+    {
+        return $"/cards?{instance.FilterKey}={Uri.EscapeDataString(instance.FilterValue)}";
+    }
+
+    private static string CardsHref(TauWeb.Core.Models.TauSystemGroup group)
+    {
+        return $"/cards?{group.FilterKey}={Uri.EscapeDataString(group.FilterValue)}";
+    }
+
+    private static string SystemCountText(TauWeb.Core.Models.TauSystem system)
+    {
+        if (system.Instances.Count == 0 && system.Groups.Count == 0)
+        {
+            return "Overview";
+        }
+
+        if (system.Groups.Count == 0)
+        {
+            return $"{system.Instances.Count} instances";
+        }
+
+        if (system.Instances.Count == 0)
+        {
+            return $"{system.Groups.Count} groups";
+        }
+
+        return $"{system.Instances.Count} instances, {system.Groups.Count} groups";
+    }
+
+    private static int InstanceNumber(TauWeb.Core.Models.TauSystemInstance instance)
+    {
+        return int.TryParse(instance.Value, out var value) ? value : 0;
+    }
+}
+
+<section class="page-band">
+    <a class="back-link" asp-page="/Systems/Index">Systems</a>
+    <div class="system-hero">
+        <div>
+            <p class="eyebrow">@SystemCountText(Model.System)</p>
+            <h1>@Model.System.Name</h1>
+            <p class="lede">@Html.Raw(MarkdownText.Inline(Model.System.Summary, ResolveLink))</p>
+        </div>
+    </div>
+
+    <div class="system-notes system-notes-revised">
+        <article>
+            <h2>Why It Exists</h2>
+            @Html.Raw(MarkdownText.Blocks(Model.System.WhyExists, ResolveLink))
+        </article>
+        <article>
+            <h2>Uses in Play</h2>
+            @Html.Raw(MarkdownText.Blocks(string.IsNullOrWhiteSpace(Model.System.UsesInPlay)
+                ? Model.System.ExistingGameMappings + "\n\n" + Model.System.NovelGameUses
+                : Model.System.UsesInPlay, ResolveLink))
+        </article>
+        <article>
+            <h2>Relationships</h2>
+            @Html.Raw(MarkdownText.Blocks(Model.System.Relationships, ResolveLink))
+        </article>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(Model.System.AuthorsNote))
+    {
+        <aside class="system-authors-note" aria-labelledby="authors-note-heading">
+            <h2 id="authors-note-heading">Author’s Note</h2>
+            @Html.Raw(MarkdownText.Blocks(Model.System.AuthorsNote, ResolveLink))
+        </aside>
+    }
+
+    @if (Model.System.Instances.Count > 0)
+    {
+        <div class="instance-grid system-instance-grid-@Model.System.Key">
+            @for (var index = 0; index < Model.System.Instances.Count; index++)
+            {
+                var instance = Model.System.Instances[index];
+                <article class="instance-card system-instance-@Model.System.Key" id="@instance.Slug">
+                    @if (Model.System.Key == "in-link-counts")
+                    {
+                        var inLinkCount = InstanceNumber(instance);
+                        <span class="system-instance-art in-link-count-art" aria-label="@($"{inLinkCount} in-link count")">
+                            @for (var item = 0; item < inLinkCount; item++)
+                            {
+                                <img src="@Edition.Asset("/generated/glyphs/indegree.webp")" alt="" aria-hidden="true" />
+                            }
+                        </span>
+                    }
+                    else if (Model.System.Key == "partitions")
+                    {
+                        var filledCount = InstanceNumber(instance);
+                        <span class="system-instance-art partition-art" aria-label="@($"Partition {filledCount}")">
+                            @for (var family = 1; family <= 3; family++)
+                            {
+                                <span class="partition-row">
+                                    @for (var position = 1; position <= 5; position++)
+                                    {
+                                        var state = position <= filledCount ? "1" : "0";
+                                        <img src="@Edition.Asset($"/generated/glyphs/partition{family}_{state}.webp")" alt="" aria-hidden="true" />
+                                    }
+                                </span>
+                            }
+                        </span>
+                    }
+                    else if (Model.System.Key == "icon-halves")
+                    {
+                        <span class="system-instance-art">
+                            <partial name="_IconHalfBars" model="instance.Image" />
+                        </span>
+                    }
+                    else if (!string.IsNullOrWhiteSpace(instance.Image))
+                    {
+                        <span class="system-instance-art">
+                            <img src="@instance.Image" alt="@instance.Name" />
+                            @if (!string.IsNullOrWhiteSpace(instance.SecondaryImage))
+                            {
+                                <img class="system-instance-secondary" src="@instance.SecondaryImage" alt="" aria-hidden="true" />
+                            }
+                        </span>
+                    }
+                    else if (Model.System.Key == "border-arrangements")
+                    {
+                        var sides = instance.Value.Split('+', StringSplitOptions.RemoveEmptyEntries);
+                        <span class="border-mini system-border-mini @(sides.Contains("T") ? "has-top" : "") @(sides.Contains("R") ? "has-right" : "") @(sides.Contains("B") ? "has-bottom" : "") @(sides.Contains("L") ? "has-left" : "")" aria-hidden="true">
+                            <span class="chevrons top"></span><span class="chevrons right"></span><span class="chevrons bottom"></span><span class="chevrons left"></span>
+                        </span>
+                    }
+                    else if (Model.System.Key == "standard-deck" && instance.Value == "Yes")
+                    {
+                        <span class="standard-deck-mark" aria-hidden="true"></span>
+                    }
+                    else if (Model.System.Key == "tarot" && instance.Value == "Yes")
+                    {
+                        <span class="system-text-glyph tau-glyph">τ</span>
+                    }
+                    else
+                    {
+                        <span class="system-text-glyph">@instance.Value</span>
+                    }
+                    <div>
+                        <h2>@instance.Name</h2>
+                        @if (!string.IsNullOrWhiteSpace(instance.Description))
+                        {
+                            @Html.Raw(MarkdownText.Blocks(instance.Description, ResolveLink))
+                        }
+                        <a class="pill" href="@CardsHref(instance)">@instance.Count matching cards</a>
+                    </div>
+                </article>
+
+                @if (Model.System.InstanceBreakAfter.Contains(index + 1))
+                {
+                    <div class="instance-row-break" aria-hidden="true"></div>
+                }
+            }
+        </div>
+    }
+
+    @if (Model.System.Groups.Count > 0)
+    {
+        <section class="system-groups" aria-labelledby="system-groups-heading">
+            <h2 id="system-groups-heading">Groups</h2>
+            <div class="instance-grid">
+                @foreach (var group in Model.System.Groups)
+                {
+                    <article class="instance-card group-card system-group-@Model.System.Key" id="@group.Slug">
+                        @if (!string.IsNullOrWhiteSpace(group.Image))
+                        {
+                            <span class="system-instance-art">
+                                <img src="@group.Image" alt="@group.Name" />
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="system-text-glyph">Group</span>
+                        }
+                        <div>
+                            <h2>@group.Name</h2>
+                            @if (!string.IsNullOrWhiteSpace(group.Description))
+                            {
+                                @Html.Raw(MarkdownText.Blocks(group.Description, ResolveLink))
+                            }
+                            <a class="pill" href="@CardsHref(group)">@group.Count matching cards</a>
+                        </div>
+                    </article>
+                }
+            </div>
+        </section>
+    }
+</section>

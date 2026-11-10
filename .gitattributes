@@ -1,0 +1,3 @@
+# The v1 manifest hashes exact bytes, including JSON line endings.
+# Preserve captured data/artwork; refresh only intentional editorial content hashes.
+src/TauWeb.Web/wwwroot/editions/v1/** -text -whitespace
