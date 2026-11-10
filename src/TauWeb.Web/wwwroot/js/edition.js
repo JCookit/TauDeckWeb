@@ -1,8 +1,13 @@
 export const edition = document.body.dataset.edition;
 export const assetRoot = document.body.dataset.assetRoot;
+const pagesRoot = document.body.dataset.pagesRoot;
 
 export function editionUrl(path) {
   const url = new URL(path, window.location.origin);
+  if (pagesRoot !== undefined) {
+    const route = url.pathname.replace(/\/$/, "");
+    return `${pagesRoot}/${edition}${route}/${url.search}${url.hash}`;
+  }
   url.searchParams.set("edition", edition);
   return `${url.pathname}${url.search}${url.hash}`;
 }
@@ -26,11 +31,16 @@ export function updateEditionLinks() {
   for (const link of document.querySelectorAll("[data-switch-edition]")) {
     const url = new URL(window.location.href);
     const target = link.dataset.switchEdition;
-    url.searchParams.set("edition", target);
+    if (pagesRoot === undefined) {
+      url.searchParams.set("edition", target);
+    } else {
+      url.pathname = new URL(link.href).pathname;
+      url.searchParams.delete("edition");
+    }
     if (target === "v1") {
       url.searchParams.delete("iconHalf");
       url.searchParams.delete("isStandardDeck");
     }
-    link.href = `${url.pathname}${url.search}`;
+    link.href = `${url.pathname}${url.search}${url.hash}`;
   }
 }

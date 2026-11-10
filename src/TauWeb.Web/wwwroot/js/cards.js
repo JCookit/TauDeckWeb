@@ -104,6 +104,7 @@ document.querySelector("[data-clear-filters]")?.addEventListener("click", () => 
   render();
 });
 
+updateEditionLinks();
 render();
 
 function populateSelect(element, key) {
