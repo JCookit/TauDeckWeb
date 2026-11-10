@@ -23,15 +23,23 @@ function Write-Page([string] $Route, [string] $Html) {
 }
 
 function Export-Page([string] $Route, [string] $Edition) {
-    $html = (Invoke-WebRequest -Uri "$origin$($Route)?edition=$Edition" -ConnectionTimeoutSeconds 5 -OperationTimeoutSeconds 30).Content
+    $url = "$origin$Route"
+    $outputRoute = $Route
+    if ($Edition) {
+        $url += "?edition=$Edition"
+        $outputRoute = "/$Edition$Route"
+    }
+    $html = (Invoke-WebRequest -Uri $url -ConnectionTimeoutSeconds 5 -OperationTimeoutSeconds 30).Content
     # The export copies source assets. Resolve Razor's build-specific asset aliases.
     $html = [regex]::Replace($html, '(?s)<script type="importmap">.*?</script>\s*', '')
     $html = $html.Replace('"/editions/', '"' + $PagesRoot + '/editions/')
     $html = $html.Replace('<body data-edition=', '<body data-pages-root="' + $PagesRoot + '" data-edition=')
-    $html = [regex]::Replace($html, '\b(?:href|src)="(/[^"]*)"', {
+    $html = [regex]::Replace($html, '\b(?:href|src)="(/(?!/)[^"]*)"', {
         param($match)
         $value = [System.Net.WebUtility]::HtmlDecode($match.Groups[1].Value)
-        $parts = $value -split '\?', 2
+        $location = $value -split '#', 2
+        $fragment = if ($location.Count -eq 2) { '#' + $location[1] } else { '' }
+        $parts = $location[0] -split '\?', 2
         $path = $parts[0]
         $assetPath = $path
         if ($PagesRoot -and $assetPath.StartsWith("$PagesRoot/")) {
@@ -47,11 +55,17 @@ function Export-Page([string] $Route, [string] $Edition) {
             }
             $destination = $PagesRoot + $sourcePath
         }
-        elseif ($path -match '^/(systems|articles|games)(/|$)') {
-            $destination = 'https://taudeck.com' + $value
+        elseif ($path -match '^/articles/([a-z0-9-]+)$' -and $parts.Count -eq 2 -and $parts[1] -eq 'handler=Source') {
+            $destination = "$PagesRoot$path/$($Matches[1]).md"
         }
-        elseif ($path -eq '/' -or $path -match '^/cards(?:/|$)') {
-            $targetEdition = $Edition
+        elseif ($path -match '^/(articles|games)(?:/|$)') {
+            $destination = $PagesRoot + $path.TrimEnd('/').ToLowerInvariant() + '/'
+            if ($parts.Count -eq 2) {
+                $destination += '?' + $parts[1]
+            }
+        }
+        elseif ($path -eq '/' -or $path -match '^/(cards|systems)(?:/|$)') {
+            $targetEdition = if ($Edition) { $Edition } else { $defaultEdition }
             $query = @()
             if ($parts.Count -gt 1) {
                 foreach ($parameter in ($parts[1] -split '&')) {
@@ -73,10 +87,10 @@ function Export-Page([string] $Route, [string] $Edition) {
         }
 
         return $match.Value.Substring(0, $match.Groups[1].Index - $match.Index) +
-            [System.Net.WebUtility]::HtmlEncode($destination) + '"'
+            [System.Net.WebUtility]::HtmlEncode($destination + $fragment) + '"'
     })
 
-    Write-Page "/$Edition$Route" $html
+    Write-Page $outputRoute $html
 }
 
 function Write-Redirect([string] $Route, [string] $Target) {
@@ -111,7 +125,7 @@ $listener.Stop()
 $origin = "http://127.0.0.1:$port"
 $serverArgs = @{
     FilePath = 'dotnet'
-    ArgumentList = @('"' + $dll + '"', '--urls', $origin, '--environment', 'Development', '--GameStore:Provider=Json')
+    ArgumentList = @('"' + $dll + '"', '--urls', $origin, '--environment', 'Development', '--GameStore:Provider=Json', '--Games:ShowLibrary=false')
     WorkingDirectory = $web
     PassThru = $true
 }
@@ -152,24 +166,54 @@ try {
         New-Item -ItemType Directory -Path $editionAssets | Out-Null
         Copy-Item -LiteralPath (Join-Path $webRoot "editions/$edition/generated") -Destination $editionAssets -Recurse
 
+        $anatomy = Join-Path $webRoot "editions/$edition/content/card-anatomy.svg"
+        if (Test-Path -LiteralPath $anatomy -PathType Leaf) {
+            $editionContent = Join-Path $editionAssets 'content'
+            New-Item -ItemType Directory -Path $editionContent | Out-Null
+            Copy-Item -LiteralPath $anatomy -Destination $editionContent
+        }
+
         $data = Get-Content -LiteralPath (Join-Path $webRoot "editions/$edition/content/tau-data.json") -Raw | ConvertFrom-Json
         $slugs = @($data.cards.slug)
         if (-not $slugs.Count -or ($slugs | Where-Object { $_ -notmatch '^[a-z0-9]+(?:-[a-z0-9]+)*$' -or $_ -eq 'matrix' }) -or
             ($slugs | Sort-Object -Unique).Count -ne $slugs.Count) {
             throw "Invalid card routes for $edition."
         }
-        foreach ($route in '/', '/cards', '/cards/matrix') {
+        foreach ($route in '/', '/cards', '/cards/matrix', '/systems') {
             Export-Page $route $edition
         }
         foreach ($card in $data.cards) {
             Export-Page "/cards/$($card.slug)" $edition
         }
-        Write-Host "Exported $edition with $($data.cards.Count) card details."
+        foreach ($system in $data.systems) {
+            if ($system.key -cnotmatch '^[a-z0-9]+(?:-[a-z0-9]+)*$') {
+                throw "Invalid system route in $edition."
+            }
+            Export-Page "/systems/$($system.key)" $edition
+        }
+        Write-Host "Exported $edition with $($data.cards.Count) card details and $($data.systems.Count) systems."
+    }
+
+    Export-Page '/articles'
+    Export-Page '/games'
+    $articleFiles = Get-ChildItem -LiteralPath (Join-Path $web 'Content/Articles') -Filter '*.md' -File
+    foreach ($article in $articleFiles) {
+        $slug = $article.BaseName
+        $route = "/articles/$slug"
+        # Razor applies article visibility and status to the source handler and detail page.
+        $source = Invoke-WebRequest -Uri "$origin$($route)?handler=Source" -SkipHttpErrorCheck -ConnectionTimeoutSeconds 5 -OperationTimeoutSeconds 30
+        if ($source.StatusCode -eq 404) { continue }
+        if ($source.StatusCode -ne 200) { throw "Article source request failed for $slug ($($source.StatusCode))." }
+
+        Export-Page $route
+        $download = Join-Path $output "articles/$slug/$slug.md"
+        [IO.File]::WriteAllBytes($download, $source.RawContentStream.ToArray())
     }
 
     Write-Redirect '/' "$PagesRoot/$defaultEdition/"
     Write-Redirect '/cards' "$PagesRoot/$defaultEdition/cards/"
     Write-Redirect '/cards/matrix' "$PagesRoot/$defaultEdition/cards/matrix/"
+    Write-Redirect '/systems' "$PagesRoot/$defaultEdition/systems/"
 }
 finally {
     if (-not $server.HasExited) {

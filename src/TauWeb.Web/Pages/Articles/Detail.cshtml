@@ -10,7 +10,7 @@
         <h1>@Model.Article.Title</h1>
         <div class="article-meta">
             @if (Model.Article.Status == "draft") { <span class="article-status">Draft</span> }
-            <a asp-page-handler="Source" asp-route-slug="@Model.Article.Slug">Download Markdown</a>
+            <a asp-page-handler="Source" asp-route-slug="@Model.Article.Slug" download>Download Markdown</a>
         </div>
     </header>
     <article class="article-body">@Html.Raw(Model.Html)</article>
