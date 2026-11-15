@@ -1,7 +1,7 @@
 ---
 title: "Ranks & Suits"
 order: 40
-status: pending
+status: draft
 visible: true
 ---
 
