@@ -29,7 +29,7 @@ How many ranks?
 
 Where does Tarot sit inside all of that?
 
-These weren't carved-in-stone yet, but I had to add some structure and see if there was something tractable.
+These weren't carved in stone yet, but I had to add some structure and see if there was something tractable.
 
 I settled into a 10 by 15 pretty quickly — ten suits, fifteen ranks. 10 suits for a couple of reasons --- I knew the standard 4 suits were going to be a subset, and 10 meant I could have 5 colors.  15 ranks because a standard deck has 13, and 10x15 made such round numbers that it was hard to ignore.  
 
@@ -113,7 +113,7 @@ More shuffling. More swapping. More second-guessing.
 
 This is also where the icon-pairing rules start to bite. So we talked about icons a little already; I did have the vision from the start that every card would have an icon (more of a small picture, but throughout I still think of them as 'icons'). That already drove some of the word choice, as I could only pick things that I was actually prepared to draw. We will talk more about icon design in a future article.
 
-But an additional mechanic I wanted (from Everdeck), was that each icon should appear *twice* on a pair of cards.  150 cards, 75 different icons.  This would facilitate, among other things, a memory-matching style of gameplay, which I really wanted.
+But an additional mechanic I wanted (from EverDeck), was that each icon should appear *twice* on a pair of cards.  150 cards, 75 different icons.  This would facilitate, among other things, a memory-matching style of gameplay, which I really wanted.
 So it felt "designed", each icon would need to *associate well* with the word on the card. It didn't have to be the most unambiguous representation of the word, nor did the icon have to combine the two cards - it just had to look like it went with the words individually.   For example, Inheritor and Yearning show a crown waiting on a shelf; in the former case it is the symbol of what is to be passed down, and in the latter case evokes the feeling of something out of reach.
 
 Also, because I apparently like making things difficult, I decided that the 2 cards participating in an icon pairing CANNOT share the same suit color or the same rank. (That’s there for gameplay reasons — it creates more interesting connections and avoids trivial matches.)  So Inheritor is a black suit, and Yearning is a blue.  Inheritor is rank 9 and Yearning is rank 15.
