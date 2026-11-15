@@ -5,7 +5,7 @@ status: pending
 visible: true
 ---
 
-## A Little Order From  Chaos
+## A Little Order From Chaos
 
 By the time the word list started to settle down, it still didn’t do very much.
 
@@ -15,15 +15,11 @@ It was better. More cohesive. But it was still just a collection of words that h
 
 ## Committing to a Shape (Even If It’s Temporary)
 
-Somewhere in here I had a realization that slowed things down a bit.
-
 Up to this point, I was still treating the deck as flexible. Words could move around, counts weren’t locked, and there was always the option to expand or contract things later.
 
-That works for exploration, but it doesn’t work for structure.
+That works for exploration, but it doesn’t work for structure, or developing other systems. I also was toying with the idea that ranks and suits had a *thematic* purpose. That would certainly make the deck feel more like a designed artifact... but it was also a lot harder.
 
-If ranks and suits are going to carry meaning—if they’re going to do anything beyond just organizing cards—then they need a framework to live in. And that framework has to be at least temporarily fixed.
-
-So I had to make some early calls.
+So I had to make some early basic decisions.
 
 How big is the deck?
 
@@ -33,101 +29,60 @@ How many ranks?
 
 Where does Tarot sit inside all of that?
 
-None of these felt final. And they weren’t. But at some point you have to pick something just to see if the rest of the idea is even tractable.
+These weren't carved-in-stone yet, but you have to add some structure and see if you had something tractable.
 
-In my case, that settled into a 10 by 15 structure—ten suits, fifteen ranks. That gives you 150 cards, which is enough space to build something interesting without getting out of hand.
+In my case, that settled into a 10 by 15 — ten suits, fifteen ranks. 10 suits for a couple of reasons --- I knew the standard 4 suits were going to be a subset, and 10 meant I could have 5 colors.  15 ranks because a standard deck has 13, and 10x15 made such round numbers that it was hard to ignore.  150 cards gave you factors of 2, 3, 5, 5 - so partitions of 2, 3, 5, 6, 10, 15, 25 etc.  But I had to let go of a number that could be split into 4 - that was hard, but everything is tradeoffs and I liked the other sizes.
 
-\[insert part about standard decks:   importantly, this gives you a standard deck to play with; well actually more than 2 decks’ worth.   For ranks, you map Ace to 1, and the face cards to 11,12,13, with 2 extras per suit\]
+Ok, and once that grid exists, things change. You’re no longer just collecting words. You’re placing them, and every placement has consequences.
 
-Once that grid exists, things change.
+These decisions were not perfect, but necessary to allow progress.   The next interesting question was do the ranks and suits actually *mean* anything?
 
-You’re no longer just collecting words. You’re placing them.
-
-And every placement has consequences.
-
-At the same time, anchoring Tarot into that structure adds another layer. Those cards come with an implied order, and wherever they land in the sequence affects how everything else wraps around them. I didn’t fully solve the sequencing here, but it was already acting as a constraint in the background.
-
-The important part is not that these decisions were perfect.
-
-It’s that making them allowed progress.
-
-Without that, you can’t really answer the next question, which is whether ranks and suits can carry any deeper meaning at all.
 
 ---
 
-## Tarot Is Fixed
+## Aside: Where is Tarot?
 
-Again, one thing I decided to anchor was the Tarot major arcana. I'm hardly a Tarot practitioner, but many of these cards are well known and cultural touchstones, and served as an accessible guide. There place in the deck was fixed.
+Again, one thing I decided to anchor was the Tarot major arcana. I'm hardly a Tarot practitioner, but many of these cards are well known and cultural touchstones, and served as an accessible guide. I needed to find where best to place them. Both mechanically and thematically.
 
-One thing I haven’t really talked about yet, but was already in the back of my mind, is sequence.
+One thing I haven’t really talked about yet, but was already in the back of my mind, is sequence numbering.  This comes a bit from EverDeck, where the cards aren’t just a grid — they have an ordering. That turns out to be more useful than it sounds. It gives you a way to reference cards, but also a way to anchor meaning and structure across the whole deck.
 
-This comes a bit from EverDeck, where the cards aren’t just a set—they’re ordered. That turns out to be more useful than it sounds. It gives you a way to reference cards, but also a way to anchor meaning and structure across the whole deck.
+I didn’t have the full system worked out yet, but I knew I wanted something like that. Every card gets a number, here 1-150 or maybe 0-149.  (spoiler alert: it ended up being 0-149)
 
-I didn’t have the full system worked out yet, but I knew I wanted something like that.
+And once you start thinking in terms of sequence, Tarot becomes more than just a set of cards you include — it becomes something you have to *place*. Those cards have an implied order, and wherever they land affects everything else around them. So Tarots, sequence numbers, the relationship between words and ranks and suits are all ingredients here.  If you let it, things just keep thrashing and you don't end up with anything.  Time for more preliminary decisions and see what the trade offs are.
 
-And once you start thinking in terms of sequence, Tarot becomes more than just a set of cards you include—it becomes something you have to *place*. Those cards have an implied order, and wherever they land affects everything else around them.
-
-That starts to tie together deck size, rank structure, and layout in ways that aren’t obvious at first.
-
-I didn’t solve that completely here, but it was already acting as a constraint.
-
-So what does the rest of the deck look like around it?
+About this time I also realized that Tarot's 22 major arcana was not a great fit for my otherwise-neat 10x15 arrangement. After some research, it seemed acceptable to round up to 25 using 3 'bridging' cards (which ultimately became Departure, Trial and Homecoming). I had already exercised some editorial control -- converting the major arcana to one word each meant some tweaks (Suspension instead of the Hanged Man; Wheel instead of Wheel of Fortune).  I could have just used other deck words in these 3 spots, but my urge to have a nice set of divisible-by-5 Tarot-esque cards was very strong. As a set, they offer a narrative/divination backbone.
 
 ---
 
 ## Looking for Slices
 
-At this point I wasn’t trying to invent systems out of thin air. I was looking at the words I already had and asking whether there were natural ways to group or order them.
+At this point I wasn’t trying to invent groups out of thin air. I was looking at the words I already had and asking whether there were natural ways to group or order them. In my case, I used the words as the stronger anchor because thus far they had defined the 'feel' of the deck.
 
 Some patterns were obvious. Others were more forced.
 
-Suits came out of that first.
+Suits were first.
 
-There are different ways you can group words, but you want something that feels consistent enough to be useful without being so strict that it breaks half your list. That balance is tricky. Too loose and the grouping doesn’t matter. Too tight and you end up rewriting everything.
+There are different ways you can group words, but you want something that feels consistent enough to be useful without being so strict that it breaks half your list. That balance is tricky. Too loose and the grouping doesn’t matter. Too tight and you end up boiling the ocean and rewriting everything.
 
-So there was a fair amount of back and forth here—adjusting words to fit a grouping, adjusting the grouping to better fit the words. Nothing especially clean about it.
+So there was a fair amount of back and forth here — adjusting words to fit a grouping, adjusting the grouping to better fit the words. Nothing especially clean about it.  I saw there were a set of words that were more "Character" like (Leader, Nomad, Zealot) and other groups of words that fit Conflict (Turmoil, Injury, Shard) and still others quite physical (Hearth, Gate).  The words themselves were still in flux at this point, but I would say about 80-90% fixed.  But between finding the groups and slotting the words, I coalesced to an initial suit color meaning.  These examples became the Black, Red and Green suit colors respectively.  The Tarots *mostly* fit into these same definitions; but because I needed to keep their strict order, I had to accept some drift here. The "mythic" theming here really helped (and will continue to), as you can use multiple definitions or associations to make a lot work. 
 
-Eventually the suits started to feel less like arbitrary buckets and more like lenses. Each one had a general “feel” to it, even if it was a little hand-wavy around the edges.   \[note: give examples\]
-
-That was good enough.
+I did have to remind myself (here, and again and again) that Perfect was the enemy of Good.
 
 ---
 
 ## Ranks Start to Mean Something
 
-Ranks were a different problem.
-
-At first they’re just ordering. You need them because it’s a deck, and decks have ranks. That part is straightforward.
+Ranks were similar, but also potentially different. Ranks can carry ordering. You need them because it’s a deck, and decks have ranks. That part is straightforward.
 
 But I wasn’t really trying to assign an ordinal meaning to the words themselves. I wasn’t thinking “this word is a 3, that word is a 12.” That didn’t feel right, and it would have forced a kind of precision that the word set didn’t naturally support.
 
-What I did expect, though, is that ranks would get reused in different ways depending on the game.
+What I did expect, though, is that ranks would get reused in different ways depending on the game.  If a game only needs 1–10, what happens to 11–15?  Those higher ranks become available. They can be repurposed. Special actions, modifiers, things like pass, reverse, skip—whatever the game needs. That’s already how a lot of custom decks work, and it seemed like something worth preserving.  A future article will talk more about that.  For now, I was curious if the word set could be roughly organized into 15 buckets, and what did those look like, and could those have gameplay application?
 
-If a game only needs 1–10, what happens to 11–15?
+After more word shuffling, the idea of ranks having an order actually helped somewhat. Thematically defining ranks as sort of a 'narrative arc' from beginnings to endings fit a lot of the words.  Rank 1 (Start) was a good fit for words like Youth, Breath, Emerge, Dawn.  Rank 11 (Reveal) was good for Judgement, Herald, Omen.  I could feel that many of the themes, when reduced to simple verbs, had a tie in to some kind of game aspect -- Move (rank 7) is a natural game action; Choose, Grow, Join all were actions that I could imagine showing up in games.   As a final bonus, the 15 rank themes group nicely into 3 'families' of Beginnings, Journeys and Endings, which provide another way to view and slice the words.
 
-Those higher ranks become available. They can be repurposed. Special actions, modifiers, things like pass, reverse, skip—whatever the game needs. That’s already how a lot of custom decks work, and it seemed like something worth preserving.
+To be clear, not all 150 words are a prefect fit.  The Tarots again have the least amount of flexibility and I had to bend some of the themes around them. At this point, some words were tossed and replaced but that was getting harder and harder since now there were multiple constraints to think about at the same time.
 
-So rank ends up doing a few things at once, but not in the usual “increasing value” sense.
-
-It’s a stable backbone for games that need ordering.
-
-It’s also a set of slots that can carry reusable mechanics.
-
-And on top of that, there was still this question of whether it could carry some sense of theme without feeling arbitrary.
-
-That’s where the tension showed up.
-
-If the ranks are too loose, then attaching gameplay meaning to them feels random. Why is this rank a “skip”? Why is that one a “reverse”? There’s nothing to anchor it.
-
-But if the ranks are too strict, you end up forcing the words into positions they don’t really belong, just to satisfy the structure.
-
-So again it landed somewhere in the middle.
-
-There’s a general sense that ranks are different from each other—that they occupy different “roles” or “spaces”—but it’s not a hard progression that every word has to obey. It’s more about giving enough shape that when you do attach gameplay meaning to a rank, it doesn’t feel completely disconnected.
-
-That turned out to be enough.
-
-Not perfect. But usable.
+The compromise across the ranks and suits is to give enough shape that it does not feel arbitrary, and not so much that when you do attach gameplay meaning to the themes, it doesn’t feel completely disconnected.
 
 ---
 
@@ -152,19 +107,16 @@ More shuffling. More swapping. More second-guessing.
 
 ## Icon Pairing Pressure
 
-This is also where the icon pairing rules start to bite.
+This is also where the icon-pairing rules start to bite. So we talked about icons a little already; I did have the vision from the start that every card would have an icon (more of a small picture, but throughout I still think of them as 'icons'). That already drove some of the word choice, as I could only pick things that I was actually prepared to draw. We will talk more about icon design in a future article.
 
-\[Note: this is referring to a mechanic that hasn’t been introduced yet, but will get its own article; figure out how to work that in\]
+But an additional mechanic I wanted (from Everdeck), was that each icon should appear *twice* on a pair of cards.  150 cards, 75 different icons.  This would facilitate, among other things, a memory-matching style of gameplay, which I really wanted.
+So it felt "designed", each icon would need to *associate well* with the word on the card. It didn't have to be the most unambiguous representation of the word, nor did the icon have to combine the two cards - it just had to look like it went with the words individually.   For example, Inheritor and Yearning show a crown waiting on a shelf; in the former case it is the symbol of what is to be passed down, and in the latter case evokes the feeling of something out of reach.
 
-Each icon appears exactly twice, and those two cards cannot share the same suit or the same rank. That’s there for gameplay reasons—it creates more interesting connections and avoids trivial matches—but it adds another layer of constraint to everything.
+Also, because I apparently like making things difficult, I decided that the 2 cards participating in an icon pairing CANNOT share the same suit color or the same rank. (That’s there for gameplay reasons — it creates more interesting connections and avoids trivial matches.)  So Inheritor is a black suit, and Yearning is a blue.  Inheritor is rank 9 and Yearning is rank 15.
 
-Now you’re not just placing words into suits and ranks.
+But now I'm not just placing words into suits and ranks.  I'm also making sure that whatever icon they eventually share can satisfy those pairing rules. 
 
-You’re also making sure that whatever icon they eventually share can satisfy those pairing rules.
-
-In practice, that meant a lot of reshuffling.
-
-You’d get a set of words that felt good in their suits and ranks, and then realize that the pairing constraints didn’t work. Or you’d fix the pairings and break something else.
+It meant a lot of iteration here. I’d get a set of words that felt good in their suits and ranks, and then realize that the pairing constraints didn’t work. Or I'd fix the pairings and break something else.
 
 So it became another loop:
 
@@ -181,9 +133,7 @@ Over and over.
 
 At some point, it starts to settle.
 
-Not because everything is perfectly aligned, but because the system stops fighting itself quite so much.
-
-The suits feel consistent enough to be meaningful.The ranks feel like a progression, even if it’s a little loose.The words more or less fit both.And the pairing constraints aren’t constantly forcing things apart.
+Not because everything is perfectly aligned, but because the system stops fighting itself quite so much.  The suits feel consistent enough to be meaningful. The ranks feel like a progression, even if it’s a little loose. The words more or less fit both. And the pairing constraints aren’t constantly forcing things apart.
 
 That’s enough to move forward.
 
@@ -201,12 +151,6 @@ Not just a list of words, but a set of relationships:
 
 Words are doing a lot of work here. They carry the meaning, they support the structure, they even enable some gameplay ideas.
 
-But if you just stop there… it’s not that interesting.
+But that's not that interesting.  It’s still basically a list of words on cards.
 
-It’s still basically a list of words on cards.
-
-That wasn’t really the goal.
-
-So the question becomes what actually goes on the card to make it feel like more than that.
-
-That’s where the icons come in.
+Next:  breathing some artistic life onto the cards. Icons.
