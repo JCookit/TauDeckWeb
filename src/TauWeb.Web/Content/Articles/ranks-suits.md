@@ -74,6 +74,12 @@ I did have to remind myself (here, and again and again) that Perfect was the ene
 
 ---
 
+The green player aid that comes with the deck shows how the ten suits share five color themes. I’ll get into the glyph design in a later article.
+
+[![Green player aid showing the ten suits and their themes](/editions/v2/generated/cards/joker_green-thumb.webp)](/editions/v2/generated/cards/joker_green-display.webp)
+
+---
+
 ## Ranks Start to Mean Something
 
 Ranks were similar, but also potentially different. Ranks can carry ordering. You need them because it’s a deck, and decks have ranks. That part is straightforward.
@@ -87,6 +93,12 @@ After more word shuffling, the idea of ranks having an order actually helped som
 To be clear, not all 150 words are a perfect fit.  The Tarots again have the least amount of flexibility and I had to bend some of the themes around them. At this point, some words were tossed and replaced but that was getting harder and harder since now there were multiple constraints to think about at the same time.
 
 The compromise across the ranks and suits is to give enough shape that it does not feel arbitrary, and not so much that when you do attach gameplay meaning to the themes, it doesn’t feel completely disconnected.
+
+---
+
+The blue player aid shows all fifteen rank themes, grouped into Beginnings, Journeys and Endings.
+
+[![Blue player aid showing the fifteen ranks and their themes](/editions/v2/generated/cards/joker_blue-thumb.webp)](/editions/v2/generated/cards/joker_blue-display.webp)
 
 ---
 
@@ -116,7 +128,11 @@ This is also where the icon-pairing rules start to bite. So we talked about icon
 But an additional mechanic I wanted (from EverDeck), was that each icon should appear *twice* on a pair of cards.  150 cards, 75 different icons.  This would facilitate, among other things, a memory-matching style of gameplay, which I really wanted.
 So it felt "designed", each icon would need to *associate well* with the word on the card. It didn't have to be the most unambiguous representation of the word, nor did the icon have to combine the two cards - it just had to look like it went with the words individually.   For example, Inheritor and Yearning show a crown waiting on a shelf; in the former case it is the symbol of what is to be passed down, and in the latter case evokes the feeling of something out of reach.
 
-Also, because I apparently like making things difficult, I decided that the 2 cards participating in an icon pairing CANNOT share the same suit color or the same rank. (That’s there for gameplay reasons — it creates more interesting connections and avoids trivial matches.)  So Inheritor is a black suit, and Yearning is a blue.  Inheritor is rank 9 and Yearning is rank 15.
+Also, because I apparently like making things difficult, I decided that the 2 cards participating in an icon pairing CANNOT share the same suit color or the same rank. (That’s there for gameplay reasons — it creates more interesting connections and avoids trivial matches.) So Inheritor is a black Spade at rank 9, and Yearning is a blue Stone at rank 15.
+
+::: card-pair
+![Inheritor, black Spade, rank 9](/editions/v2/generated/cards/card-024-thumb.webp) ![Yearning, blue Stone, rank 15](/editions/v2/generated/cards/card-090-thumb.webp)
+:::
 
 But now I'm not just placing words into suits and ranks.  I'm also making sure that whatever icon they eventually share can satisfy those pairing rules. 
 
