@@ -153,6 +153,48 @@ Over and over.
 
 At some point, I hit diminishing returns. Most words felt right, and changes broke more things than they fixed.  The suits felt consistent enough to be meaningful. The ranks felt like a progression, even if it’s a little loose. And the pairing constraints weren’t constantly forcing things apart. At this stage, the deck finally had some structure.
 
+::: rank-suit-grid
+*The 150 Tau words arranged by rank and suit, using the themes printed on the player aids above. Read across for a rank theme or down for a suit theme. Scroll sideways to see all ten suits.*
+
+*Purple marks the 22 Major Arcana and three bridging cards at ranks 11–15, from Clubs through Flames.*
+
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| Rank theme         | Archetypes                  | External Forces & Conflict  | Internal Forces & Mind      | Symbols & Myth              | Environment                 |
++                    +--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+|                    | Clubs        | Spades       | Hearts       | Diamonds     | Flames       | Stones       | Crescents    | Stars        | Leaves       | Peaks        |
++====================+==============+==============+==============+==============+==============+==============+==============+==============+==============+==============+
+| **1 · Start**      | Youth        | Wayfarer     | Breath       | Spark        | Aura         | Emerge       | Emblem       | Seed         | Oasis        | Dawn         |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **2 · Choose**     | Guide        | Envoy        | Yield        | Fork         | Intuition    | Hinge        | Rune         | X-roads      | Island       | Gate         |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **3 · Grow**       | Apprentice   | Aspirant     | Eruption     | Obstacle     | Trance       | Thaw         | Spiral       | Vine         | Grain        | Leaf         |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **4 · Form**       | Steward      | Guardian     | Nexus        | Truss        | Rhythm       | Axis         | Orb          | Pillar       | Library      | Hearth       |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **5 · Push**       | Nemesis      | Zealot       | Shard        | Injury       | Urge         | Nether       | Tether       | Edge         | Rift         | Trap         |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **6 · Join**       | Mentor       | Ally         | Thread       | Hook         | Unity        | Oath         | Covenant     | Knot         | Ring         | Yoke         |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **7 · Move**       | Explorer     | Pilgrim      | Arrow        | Deluge       | Ascent       | Descent      | Spirit       | Wing         | Orbit        | Trail        |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **8 · Control**    | Leader       | Fighter      | Rod          | Hammer       | Nerve        | Resolve      | Laurel       | Helm         | Obsidian     | Barrier      |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **9 · Ground**     | Elder        | Inheritor    | Turmoil      | Impact       | Essence      | Anchor       | Nadir        | Root         | River        | Ingot        |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **10 · Adapt**     | Emissary     | Nomad        | Blight       | Maelstrom    | Pulse        | Outlook      | Zenith       | Vista        | Horizon      | Quake        |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **11 · Reveal**    | Fool         | Hierophant   | Wheel        | Devil        | Judgement    | Idol         | Herald       | Omen         | Echo         | Nova         |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **12 · Shape**     | Magician     | Lovers       | Justice      | Tower        | World        | Muse         | Talisman     | Arch         | Obelisk      | Anvil        |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **13 · Shift**     | Priestess    | Chariot      | Suspension   | Star         | Departure    | Renewal      | Charge       | Crest        | Ether        | Tide         |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **14 · Forge**     | Empress      | Strength     | Death        | Moon         | Trial        | Fury         | Ember        | Upheaval     | Inferno      | Crucible     |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+| **15 · Reflect**   | Emperor      | Hermit       | Temperance   | Sun          | Homecoming   | Yearning     | Veil         | Eclipse      | Night        | Abyss        |
++--------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+:::
+
 Words are doing a lot of work here. They carry the meaning, they support the structure, they even enable some gameplay ideas.
 
 But that's not that interesting.  It’s still basically a list of words on cards.

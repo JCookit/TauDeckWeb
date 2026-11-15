@@ -15,7 +15,7 @@ public sealed record TauArticle(string Slug, string Title, int Order, string Sta
 public sealed class TauArticleStore(IWebHostEnvironment environment)
 {
     private static readonly MarkdownPipeline Pipeline = new MarkdownPipelineBuilder()
-        .UsePipeTables().UseAutoIdentifiers().UseTaskLists().UseCustomContainers().DisableHtml().Build();
+        .UsePipeTables().UseGridTables().UseAutoIdentifiers().UseTaskLists().UseCustomContainers().DisableHtml().Build();
 
     public static string Render(string markdown) => Markdig.Markdown.ToHtml(markdown, Pipeline);
 

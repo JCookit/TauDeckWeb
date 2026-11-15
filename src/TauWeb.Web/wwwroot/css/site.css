@@ -1234,6 +1234,10 @@ a[aria-disabled="true"] {
 .article-body table { display: block; overflow-x: auto; border-collapse: collapse; max-width: 100%; margin: 1.5em 0; font-size: .95em; }
 .article-body th, .article-body td { border: 1px solid var(--line); padding: 10px 14px; text-align: left; }
 .article-body th { background: var(--panel); }
+.article-body .rank-suit-grid th { overflow-wrap: normal; }
+.article-body .rank-suit-grid th[colspan] { text-align: center; }
+.article-body .rank-suit-grid td { white-space: nowrap; }
+.article-body .rank-suit-grid tbody tr:nth-child(n + 11) td:nth-child(n + 2):nth-child(-n + 6) { background-color: #eee6f8; }
 .article-body pre { overflow-x: auto; background: var(--panel); padding: 16px; border-radius: 6px; }
 .article-body a { color: var(--accent); text-underline-offset: 3px; }
 .article-body hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
