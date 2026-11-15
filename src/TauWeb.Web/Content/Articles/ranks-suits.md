@@ -29,9 +29,11 @@ How many ranks?
 
 Where does Tarot sit inside all of that?
 
-These weren't carved-in-stone yet, but you have to add some structure and see if you had something tractable.
+These weren't carved-in-stone yet, but I had to add some structure and see if there was something tractable.
 
-In my case, that settled into a 10 by 15 — ten suits, fifteen ranks. 10 suits for a couple of reasons --- I knew the standard 4 suits were going to be a subset, and 10 meant I could have 5 colors.  15 ranks because a standard deck has 13, and 10x15 made such round numbers that it was hard to ignore.  150 cards gave you factors of 2, 3, 5, 5 - so partitions of 2, 3, 5, 6, 10, 15, 25 etc.  But I had to let go of a number that could be split into 4 - that was hard, but everything is tradeoffs and I liked the other sizes.
+I settled into a 10 by 15 pretty quickly — ten suits, fifteen ranks. 10 suits for a couple of reasons --- I knew the standard 4 suits were going to be a subset, and 10 meant I could have 5 colors.  15 ranks because a standard deck has 13, and 10x15 made such round numbers that it was hard to ignore.  
+
+Those numbers gave more than 2 full decks of standard cards. 150 cards gave you factors of 2, 3, 5, 5 - so partitions of 2, 3, 5, 6, 10, 15, 25 etc.  But I had to let go of a number that could be split into 4 - that was hard, but everything is tradeoffs and I liked the other sizes.
 
 Ok, and once that grid exists, things change. You’re no longer just collecting words. You’re placing them, and every placement has consequences.
 
@@ -40,17 +42,19 @@ These decisions were not perfect, but necessary to allow progress.   The next in
 
 ---
 
-## Aside: Where is Tarot?
+## Aside: Making Room for Tarot
 
 Again, one thing I decided to anchor was the Tarot major arcana. I'm hardly a Tarot practitioner, but many of these cards are well known and cultural touchstones, and served as an accessible guide. I needed to find where best to place them. Both mechanically and thematically.
 
 One thing I haven’t really talked about yet, but was already in the back of my mind, is sequence numbering.  This comes a bit from EverDeck, where the cards aren’t just a grid — they have an ordering. That turns out to be more useful than it sounds. It gives you a way to reference cards, but also a way to anchor meaning and structure across the whole deck.
 
-I didn’t have the full system worked out yet, but I knew I wanted something like that. Every card gets a number, here 1-150 or maybe 0-149.  (spoiler alert: it ended up being 0-149)
+I didn’t have the full system worked out yet, but I knew I wanted something like that. Every card gets a number, here 1-150 or maybe 0-149.  (spoiler alert: it ended up being 0-149, which we'll talk about in the future)
 
 And once you start thinking in terms of sequence, Tarot becomes more than just a set of cards you include — it becomes something you have to *place*. Those cards have an implied order, and wherever they land affects everything else around them. So Tarots, sequence numbers, the relationship between words and ranks and suits are all ingredients here.  If you let it, things just keep thrashing and you don't end up with anything.  Time for more preliminary decisions and see what the trade offs are.
 
 About this time I also realized that Tarot's 22 major arcana was not a great fit for my otherwise-neat 10x15 arrangement. After some research, it seemed acceptable to round up to 25 using 3 'bridging' cards (which ultimately became Departure, Trial and Homecoming). I had already exercised some editorial control -- converting the major arcana to one word each meant some tweaks (Suspension instead of the Hanged Man; Wheel instead of Wheel of Fortune).  I could have just used other deck words in these 3 spots, but my urge to have a nice set of divisible-by-5 Tarot-esque cards was very strong. As a set, they offer a narrative/divination backbone.
+
+At 25 cards, they fit into the 'high cards' (ranks 11-15) of the first five suits.
 
 ---
 
@@ -131,23 +135,7 @@ Over and over.
 
 ## Where This Lands
 
-At some point, it starts to settle.
-
-Not because everything is perfectly aligned, but because the system stops fighting itself quite so much.  The suits feel consistent enough to be meaningful. The ranks feel like a progression, even if it’s a little loose. The words more or less fit both. And the pairing constraints aren’t constantly forcing things apart.
-
-That’s enough to move forward.
-
----
-
-## What Comes Next
-
-At this stage, the deck finally has some structure.
-
-Not just a list of words, but a set of relationships:
-
-- grouping (suits)
-- ordering (ranks)
-- constraints (pairing rules)
+At some point, I hit diminishing returns. Most words feel right, and changes break more things than they fix.  The suits feel consistent enough to be meaningful. The ranks feel like a progression, even if it’s a little loose. And the pairing constraints aren’t constantly forcing things apart. At this stage, the deck finally has some structure.
 
 Words are doing a lot of work here. They carry the meaning, they support the structure, they even enable some gameplay ideas.
 
