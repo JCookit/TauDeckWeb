@@ -33,7 +33,7 @@ These weren't carved in stone yet, but I had to add some structure and see if th
 
 I settled into a 10 by 15 pretty quickly — ten suits, fifteen ranks. 10 suits for a couple of reasons --- I knew the standard 4 suits were going to be a subset, and 10 meant I could have 5 colors.  15 ranks because a standard deck has 13, and 10x15 made such round numbers that it was hard to ignore.  
 
-That gave me a familiar 52 deck, plus 6 more suits and extra cards in each suit. 150 cards gave you factors of 2, 3, 5, 5 - so partitions of 2, 3, 5, 6, 10, 15, 25 etc.  But I had to let go of a number that could be split into 4 - that was hard, but everything is tradeoffs and I liked the other sizes.
+That gave me a familiar 52-card deck, plus 6 more suits and extra cards in each suit. 150 cards gave you factors of 2, 3, 5, 5 - so partitions of 2, 3, 5, 6, 10, 15, 25 etc.  But I had to let go of a number that could be split into 4 - that was hard, but everything is tradeoffs and I liked the other sizes.
 
 Ok, and once that grid exists, things change. I started placing words, and every placement had consequences.
 
@@ -84,7 +84,7 @@ What I did expect, though, is that ranks would get reused in different ways depe
 
 After more word shuffling, the idea of ranks having an order actually helped somewhat. Thematically defining ranks as sort of a 'narrative arc' from beginnings to endings fit a lot of the words.  Rank 1 (Start) was a good fit for words like Youth, Breath, Emerge, Dawn.  Rank 11 (Reveal) was good for Judgement, Herald, Omen.  I could feel that many of the themes, when reduced to simple verbs, had a tie in to some kind of game aspect -- Move (rank 7) is a natural game action; Choose, Grow, Join all were actions that I could imagine showing up in games.   As a final bonus, the 15 rank themes group nicely into 3 'families' of Beginnings, Journeys and Endings, which provide another way to view and slice the words.
 
-To be clear, not all 150 words are a prefect fit.  The Tarots again have the least amount of flexibility and I had to bend some of the themes around them. At this point, some words were tossed and replaced but that was getting harder and harder since now there were multiple constraints to think about at the same time.
+To be clear, not all 150 words are a perfect fit.  The Tarots again have the least amount of flexibility and I had to bend some of the themes around them. At this point, some words were tossed and replaced but that was getting harder and harder since now there were multiple constraints to think about at the same time.
 
 The compromise across the ranks and suits is to give enough shape that it does not feel arbitrary, and not so much that when you do attach gameplay meaning to the themes, it doesn’t feel completely disconnected.
 
