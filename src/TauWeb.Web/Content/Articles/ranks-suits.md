@@ -33,9 +33,9 @@ These weren't carved-in-stone yet, but I had to add some structure and see if th
 
 I settled into a 10 by 15 pretty quickly — ten suits, fifteen ranks. 10 suits for a couple of reasons --- I knew the standard 4 suits were going to be a subset, and 10 meant I could have 5 colors.  15 ranks because a standard deck has 13, and 10x15 made such round numbers that it was hard to ignore.  
 
-Those numbers gave more than 2 full decks of standard cards. 150 cards gave you factors of 2, 3, 5, 5 - so partitions of 2, 3, 5, 6, 10, 15, 25 etc.  But I had to let go of a number that could be split into 4 - that was hard, but everything is tradeoffs and I liked the other sizes.
+Those numbers give a familiar 52 deck, plus 6 more suits and extra cards in each suit. 150 cards gave you factors of 2, 3, 5, 5 - so partitions of 2, 3, 5, 6, 10, 15, 25 etc.  But I had to let go of a number that could be split into 4 - that was hard, but everything is tradeoffs and I liked the other sizes.
 
-Ok, and once that grid exists, things change. You’re no longer just collecting words. You’re placing them, and every placement has consequences.
+Ok, and once that grid exists, things change. I'm placing words, and every placement has consequences.
 
 These decisions were not perfect, but necessary to allow progress.   The next interesting question was do the ranks and suits actually *mean* anything?
 
