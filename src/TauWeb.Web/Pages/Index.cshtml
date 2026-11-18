@@ -10,9 +10,14 @@
         <p class="eyebrow">Deck library</p>
         <h1>Tau</h1>
         <p class="lede">One deck. Familiar games. Unexpected possibilities.</p>
+        <section class="home-kickstarter" aria-labelledby="kickstarter-heading">
+            <h2 id="kickstarter-heading">Want a Tau deck of your own?</h2>
+            <p>Follow the project on Kickstarter to be notified when it launches.</p>
+            <a class="button primary" href="https://www.kickstarter.com/projects/cookits/the-tau-deck">Follow on Kickstarter</a>
+        </section>
         <p class="home-intro">Tau starts with something you already know: a deck you can shuffle, deal, and play. Its 150 cards bring together words, paired pictures, and carefully balanced symbols, giving you more ways to match, move, tell stories, and invent games of your own. Start with the familiar suits and ranks, then explore as much of the rest as you like. Browse the cards, discover how the systems connect, and follow the design story. @(Configuration.GetValue<bool>("Games:ShowLibrary") ? "Visit the game library for ways to play." : "Games for the Tau deck are coming soon.")</p>
         <div class="actions">
-            <a class="button primary" asp-page="/Cards/Index">Browse cards</a>
+            <a class="button" asp-page="/Cards/Index">Browse cards</a>
             <a class="button" asp-page="/Systems/Index">Explore systems</a>
             <a class="button" asp-page="/Articles/Index">Read the story</a>
             <a class="button" asp-page="/Games/Index">Games</a>
